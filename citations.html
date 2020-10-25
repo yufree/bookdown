@@ -4,10 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.8 Citations | bookdown: Authoring Books and Technical Documents with R Markdown</title>
+  <title>2.8 Citations | bookdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
+  <meta name="generator" content="2.8 Citations | bookdown 0.21.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.8 Citations | bookdown: Authoring Books and Technical Documents with R Markdown" />
+  <meta property="og:title" content="2.8 Citations | bookdown" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/yihui/bookdown/" />
   <meta property="og:image" content="https://bookdown.org/yihui/bookdown//images/cover.jpg" />
@@ -15,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.8 Citations | bookdown: Authoring Books and Technical Documents with R Markdown" />
+  <meta name="twitter:title" content="2.8 Citations | bookdown" />
   
   <meta name="twitter:description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="twitter:image" content="https://bookdown.org/yihui/bookdown//images/cover.jpg" />
@@ -234,7 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Authoring Books and Technical Documents with R Markdown</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">bookdown</a>
           </h1>
         </div>
 
@@ -269,7 +270,7 @@ formats is important, use <code>pandoc-citeproc</code> throughout.</p>
 <span id="cb59-7"><a href="citations.html#cb59-7"></a>  <span class="dt">year</span> = {2016},</span>
 <span id="cb59-8"><a href="citations.html#cb59-8"></a>  <span class="dt">url</span> = {https://www.R-project.org/},</span>
 <span id="cb59-9"><a href="citations.html#cb59-9"></a>}</span></code></pre></div>
-<p>A bibliography entry starts with <code>@type{</code>, where <code>type</code> may be <code>article</code>, <code>book</code>, <code>manual</code>, and so on.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> Then there is a citation key, like <code>R-base</code> in the above example. To cite an entry, use <code>@key</code> or <code>[@key]</code> (the latter puts the citation in braces), e.g., <code>@R-base</code> is rendered as <span class="citation">R Core Team (<a href="#ref-R-base" role="doc-biblioref">2020</a>)</span>, and <code>[@R-base]</code> generates “<span class="citation">(R Core Team <a href="#ref-R-base" role="doc-biblioref">2020</a>)</span>”. If you are familiar with the <strong>natbib</strong> package in LaTeX, <code>@key</code> is basically <code>\citet{key}</code>, and <code>[@key]</code> is equivalent to <code>\citep{key}</code>.</p>
+<p>A bibliography entry starts with <code>@type{</code>, where <code>type</code> may be <code>article</code>, <code>book</code>, <code>manual</code>, and so on.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> Then there is a citation key, like <code>R-base</code> in the above example. To cite an entry, use <code>@key</code> or <code>[@key]</code> (the latter puts the citation in braces), e.g., <code>@R-base</code> is rendered as <span class="citation">R Core Team,<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a></span> and <code>[@R-base]</code> generates “<span class="citation"><a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a></span>”. If you are familiar with the <strong>natbib</strong> package in LaTeX, <code>@key</code> is basically <code>\citet{key}</code>, and <code>[@key]</code> is equivalent to <code>\citep{key}</code>.</p>
 <p>There are a number of fields in a bibliography entry, such as <code>title</code>, <code>author</code>, and <code>year</code>, etc. You may see <a href="https://en.wikipedia.org/wiki/BibTeX" class="uri">https://en.wikipedia.org/wiki/BibTeX</a> for possible types of entries and fields in BibTeX.</p>
 <p>There is a helper function <code>write_bib()</code> in <strong>knitr</strong> to generate BibTeX entries automatically for R packages, e.g.,</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="citations.html#cb60-1"></a><span class="co"># the second argument can be a .bib file</span></span>
@@ -328,16 +329,12 @@ formats is important, use <code>pandoc-citeproc</code> throughout.</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb63-1"><a href="citations.html#cb63-1"></a><span class="bn">`r if (knitr::is_html_output()) &#39;# References {-}&#39;`</span></span></code></pre></div>
 <p>For more detailed instructions and further examples on how to use citations, please see the “Citations” section of the Pandoc manual.</p>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-R-base">
-<p>R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
-</div>
-</div>
 <div class="footnotes">
 <hr />
-<ol start="7">
-<li id="fn7"><p>The type name is case-insensitive, so it does not matter if it is <code>manual</code>, <code>Manual</code>, or <code>MANUAL</code>.<a href="citations.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<ol start="14">
+<li id="fn14"><p>The type name is case-insensitive, so it does not matter if it is <code>manual</code>, <code>Manual</code>, or <code>MANUAL</code>.<a href="citations.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p><em>R</em>.<a href="citations.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>R Core Team.<a href="citations.html#fnref16" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

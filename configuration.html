@@ -4,10 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.4 Configuration | bookdown: Authoring Books and Technical Documents with R Markdown</title>
+  <title>4.4 Configuration | bookdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
+  <meta name="generator" content="4.4 Configuration | bookdown 0.21.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.4 Configuration | bookdown: Authoring Books and Technical Documents with R Markdown" />
+  <meta property="og:title" content="4.4 Configuration | bookdown" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/yihui/bookdown/" />
   <meta property="og:image" content="https://bookdown.org/yihui/bookdown//images/cover.jpg" />
@@ -15,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.4 Configuration | bookdown: Authoring Books and Technical Documents with R Markdown" />
+  <meta name="twitter:title" content="4.4 Configuration | bookdown" />
   
   <meta name="twitter:description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="twitter:image" content="https://bookdown.org/yihui/bookdown//images/cover.jpg" />
@@ -234,7 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Authoring Books and Technical Documents with R Markdown</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">bookdown</a>
           </h1>
         </div>
 
@@ -258,14 +259,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>clean</code>: a vector of files and directories to be cleaned by the <code>clean_book()</code> function.</li>
 </ul>
 <p>Here is a sample <code>_bookdown.yml</code>:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb106-1"><a href="configuration.html#cb106-1"></a><span class="fu">book_filename</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;my-book.Rmd&quot;</span></span>
-<span id="cb106-2"><a href="configuration.html#cb106-2"></a><span class="fu">delete_merged_file</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb106-3"><a href="configuration.html#cb106-3"></a><span class="fu">before_chapter_script</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;script1.R&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;script2.R&quot;</span><span class="kw">]</span></span>
-<span id="cb106-4"><a href="configuration.html#cb106-4"></a><span class="fu">after_chapter_script</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;script3.R&quot;</span></span>
-<span id="cb106-5"><a href="configuration.html#cb106-5"></a><span class="fu">view</span><span class="kw">:</span><span class="at"> https://github.com/rstudio/bookdown-demo/blob/master/%s</span></span>
-<span id="cb106-6"><a href="configuration.html#cb106-6"></a><span class="fu">edit</span><span class="kw">:</span><span class="at"> https://github.com/rstudio/bookdown-demo/edit/master/%s</span></span>
-<span id="cb106-7"><a href="configuration.html#cb106-7"></a><span class="fu">output_dir</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;book-output&quot;</span></span>
-<span id="cb106-8"><a href="configuration.html#cb106-8"></a><span class="fu">clean</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;my-book.bbl&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;R-packages.bib&quot;</span><span class="kw">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb107-1"><a href="configuration.html#cb107-1"></a><span class="fu">book_filename</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;my-book.Rmd&quot;</span></span>
+<span id="cb107-2"><a href="configuration.html#cb107-2"></a><span class="fu">delete_merged_file</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb107-3"><a href="configuration.html#cb107-3"></a><span class="fu">before_chapter_script</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;script1.R&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;script2.R&quot;</span><span class="kw">]</span></span>
+<span id="cb107-4"><a href="configuration.html#cb107-4"></a><span class="fu">after_chapter_script</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;script3.R&quot;</span></span>
+<span id="cb107-5"><a href="configuration.html#cb107-5"></a><span class="fu">view</span><span class="kw">:</span><span class="at"> https://github.com/rstudio/bookdown-demo/blob/master/%s</span></span>
+<span id="cb107-6"><a href="configuration.html#cb107-6"></a><span class="fu">edit</span><span class="kw">:</span><span class="at"> https://github.com/rstudio/bookdown-demo/edit/master/%s</span></span>
+<span id="cb107-7"><a href="configuration.html#cb107-7"></a><span class="fu">output_dir</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;book-output&quot;</span></span>
+<span id="cb107-8"><a href="configuration.html#cb107-8"></a><span class="fu">clean</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;my-book.bbl&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;R-packages.bib&quot;</span><span class="kw">]</span></span></code></pre></div>
 </div>
             </section>
 

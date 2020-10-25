@@ -4,10 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.11 Web pages and Shiny apps | bookdown: Authoring Books and Technical Documents with R Markdown</title>
+  <title>2.11 Web pages and Shiny apps | bookdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
+  <meta name="generator" content="2.11 Web pages and Shiny apps | bookdown 0.21.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.11 Web pages and Shiny apps | bookdown: Authoring Books and Technical Documents with R Markdown" />
+  <meta property="og:title" content="2.11 Web pages and Shiny apps | bookdown" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/yihui/bookdown/" />
   <meta property="og:image" content="https://bookdown.org/yihui/bookdown//images/cover.jpg" />
@@ -15,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.11 Web pages and Shiny apps | bookdown: Authoring Books and Technical Documents with R Markdown" />
+  <meta name="twitter:title" content="2.11 Web pages and Shiny apps | bookdown" />
   
   <meta name="twitter:description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="twitter:image" content="https://bookdown.org/yihui/bookdown//images/cover.jpg" />
@@ -234,7 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Authoring Books and Technical Documents with R Markdown</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">bookdown</a>
           </h1>
         </div>
 
@@ -244,7 +245,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="web-pages-and-shiny-apps" class="section level2">
 <h2><span class="header-section-number">2.11</span> Web pages and Shiny apps</h2>
-<p>Similar to HTML widgets, arbitrary web pages can be embedded in the book. You can use the function <code>knitr::include_url()</code> to include a web page through its URL. When the output format is HTML, an <code>iframe</code> is used;<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> in other cases, <strong>knitr</strong> tries to take a screenshot of the web page (or use the custom screenshot you provided). All chunk options are the same as those for HTML widgets. One option that may require your special attention is the <code>delay</code> option: HTML widgets are rendered locally, so usually they are fast to load for PhantomJS to take screenshots, but an arbitrary URL may take longer to load, so you may want to use a larger <code>delay</code> value, e.g., use the chunk option <code>screenshot.opts = list(delay = 5)</code>.</p>
+<p>Similar to HTML widgets, arbitrary web pages can be embedded in the book. You can use the function <code>knitr::include_url()</code> to include a web page through its URL. When the output format is HTML, an <code>iframe</code> is used;<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a> in other cases, <strong>knitr</strong> tries to take a screenshot of the web page (or use the custom screenshot you provided). All chunk options are the same as those for HTML widgets. One option that may require your special attention is the <code>delay</code> option: HTML widgets are rendered locally, so usually they are fast to load for PhantomJS to take screenshots, but an arbitrary URL may take longer to load, so you may want to use a larger <code>delay</code> value, e.g., use the chunk option <code>screenshot.opts = list(delay = 5)</code>.</p>
 <p>A related function is <code>knitr::include_app()</code>, which is very similar to <code>include_url()</code>, and it was designed for embedding Shiny apps via their URLs in the output. Its only difference with <code>include_url()</code> is that it automatically adds a query parameter <code>?showcase=0</code> to the URL, if no other query parameters are present in the URL, to disable the Shiny showcase mode, which is unlikely to be useful for screenshots or iframes. If you do want the showcase mode, use <code>include_url()</code> instead of <code>include_app()</code>. Below is a Shiny app example (Figure <a href="web-pages-and-shiny-apps.html#fig:miniUI">2.6</a>):</p>
 
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="web-pages-and-shiny-apps.html#cb67-1"></a>knitr<span class="op">::</span><span class="kw">include_app</span>(<span class="st">&quot;https://yihui.shinyapps.io/miniUI/&quot;</span>, </span>
@@ -257,21 +258,16 @@ FIGURE 2.6: A Shiny app created via the miniUI package; you can see a live versi
 </p>
 </div>
 
-<p>Again, you will see a live app if you are reading an HTML version of this book, and a static screenshot if you are reading other types of formats. The above Shiny app was created using the <strong>miniUI</strong> package <span class="citation">(Cheng <a href="#ref-R-miniUI" role="doc-biblioref">2018</a>)</span>, which provides layout functions that are particularly nice for Shiny apps on small screens. If you use normal Shiny layout functions, you are likely to see vertical and/or horizontal scrollbars in the iframes because the page size is too big to fit in an iframe. When the default width of the iframe is too small, you may use the chunk option <code>out.width</code> to change it. For the height of the iframe, use the <code>height</code> argument of <code>include_url()</code>/<code>include_app()</code>.</p>
+<p>Again, you will see a live app if you are reading an HTML version of this book, and a static screenshot if you are reading other types of formats. The above Shiny app was created using the <strong>miniUI</strong> package,<span class="citation"><a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a></span> which provides layout functions that are particularly nice for Shiny apps on small screens. If you use normal Shiny layout functions, you are likely to see vertical and/or horizontal scrollbars in the iframes because the page size is too big to fit in an iframe. When the default width of the iframe is too small, you may use the chunk option <code>out.width</code> to change it. For the height of the iframe, use the <code>height</code> argument of <code>include_url()</code>/<code>include_app()</code>.</p>
 <p>Shiny apps may take even longer to load than usual URLs. You may want to use a conservative value for the <code>delay</code> option, e.g., 10. Needless to say, <code>include_url()</code> and <code>include_app()</code> require a working Internet connection, unless you have previously cached the chunk (but web pages inside iframes still will not work without an Internet connection).</p>
 
 </div>
 <!-- </div> -->
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-R-miniUI">
-<p>Cheng, Joe. 2018. <em>MiniUI: Shiny Ui Widgets for Small Screens</em>. <a href="https://CRAN.R-project.org/package=miniUI">https://CRAN.R-project.org/package=miniUI</a>.</p>
-</div>
-</div>
 <div class="footnotes">
 <hr />
-<ol start="8">
-<li id="fn8"><p>An <code>iframe</code> is basically a box on one web page to embed another web page.<a href="web-pages-and-shiny-apps.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<ol start="20">
+<li id="fn20"><p>An <code>iframe</code> is basically a box on one web page to embed another web page.<a href="web-pages-and-shiny-apps.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p>Joe Cheng, <em>MiniUI: Shiny Ui Widgets for Small Screens</em>, 2018, <a href="https://CRAN.R-project.org/package=miniUI" role="doc-biblioref">https://CRAN.R-project.org/package=miniUI</a>.<a href="web-pages-and-shiny-apps.html#fnref21" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
