@@ -4,11 +4,10 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.2 Markdown extensions by bookdown | bookdown</title>
+  <title>2.2 Markdown extensions by bookdown | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
-  <meta name="generator" content="2.2 Markdown extensions by bookdown | bookdown 0.21.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.2 Markdown extensions by bookdown | bookdown" />
+  <meta property="og:title" content="2.2 Markdown extensions by bookdown | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/yihui/bookdown/" />
   <meta property="og:image" content="https://bookdown.org/yihui/bookdown//images/cover.jpg" />
@@ -16,7 +15,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.2 Markdown extensions by bookdown | bookdown" />
+  <meta name="twitter:title" content="2.2 Markdown extensions by bookdown | bookdown: Authoring Books and Technical Documents with R Markdown" />
   
   <meta name="twitter:description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="twitter:image" content="https://bookdown.org/yihui/bookdown//images/cover.jpg" />
@@ -235,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">bookdown</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Authoring Books and Technical Documents with R Markdown</a>
           </h1>
         </div>
 
@@ -402,7 +401,7 @@ and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</
 <div class="sourceCode" id="cb36"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb36-1"><a href="markdown-extensions-by-bookdown.html#cb36-1"></a><span class="bn">```{theorem, echo=TRUE}</span></span>
 <span id="cb36-2"><a href="markdown-extensions-by-bookdown.html#cb36-2"></a><span class="bn">Here is my theorem.</span></span>
 <span id="cb36-3"><a href="markdown-extensions-by-bookdown.html#cb36-3"></a><span class="bn">```</span></span></code></pre></div>
-<p>Below we show more examples<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> of the theorem and proof environments, so you can see the default styles in <strong>bookdown</strong>.</p>
+<p>Below we show more examples<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> of the theorem and proof environments, so you can see the default styles in <strong>bookdown</strong>.</p>
 
 <div class="definition">
 <p><span id="def:unnamed-chunk-10" class="definition"><strong>Definition 2.1  </strong></span>The characteristic function of a random variable <span class="math inline">\(X\)</span> is defined by</p>
@@ -508,7 +507,7 @@ This is the characteristic function of a Poisson random variable with the parame
 <div id="text-references" class="section level3">
 <h3><span class="header-section-number">2.2.4</span> Text references</h3>
 <p>You can assign some text to a label and reference the text using the label elsewhere in your document. This can be particularly useful for long figure/table captions (Section <a href="figures.html#figures">2.4</a> and <a href="tables.html#tables">2.5</a>), in which case you normally will have to write the whole character string in the chunk header (e.g., <code>fig.cap = "A long long figure caption."</code>) or your R code (e.g., <code>kable(caption = "A long long table caption.")</code>). It is also useful when these captions contain special HTML or LaTeX characters, e.g., if the figure caption contains an underscore, it works in the HTML output but may not work in LaTeX output because the underscore must be escaped in LaTeX.</p>
-<p>The syntax for a text reference is <code>(ref:label) text</code>, where <code>label</code> is a unique label<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> throughout the document for <code>text</code>. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,</p>
+<p>The syntax for a text reference is <code>(ref:label) text</code>, where <code>label</code> is a unique label<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> throughout the document for <code>text</code>. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb39-1"><a href="markdown-extensions-by-bookdown.html#cb39-1"></a>(ref:foo) Define a text reference **here**. </span></code></pre></div>
 <p>Then you can use <code>(ref:foo)</code> in your figure/table captions. The text can contain anything that Markdown supports, as long as it is one single paragraph. Here is a complete example:</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb40-1"><a href="markdown-extensions-by-bookdown.html#cb40-1"></a>A normal paragraph.</span>
@@ -523,9 +522,9 @@ This is the characteristic function of a Poisson random variable with the parame
 </div>
 <div class="footnotes">
 <hr />
-<ol start="10">
-<li id="fn10"><p>Some examples are adapted from the Wikipedia page <a href="https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)" class="uri">https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)</a><a href="markdown-extensions-by-bookdown.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>You may consider using the code chunk labels.<a href="markdown-extensions-by-bookdown.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<ol start="4">
+<li id="fn4"><p>Some examples are adapted from the Wikipedia page <a href="https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)" class="uri">https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)</a><a href="markdown-extensions-by-bookdown.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>You may consider using the code chunk labels.<a href="markdown-extensions-by-bookdown.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

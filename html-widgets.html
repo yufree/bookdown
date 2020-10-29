@@ -4,11 +4,10 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.10 HTML widgets | bookdown</title>
+  <title>2.10 HTML widgets | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
-  <meta name="generator" content="2.10 HTML widgets | bookdown 0.21.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.10 HTML widgets | bookdown" />
+  <meta property="og:title" content="2.10 HTML widgets | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/yihui/bookdown/" />
   <meta property="og:image" content="https://bookdown.org/yihui/bookdown//images/cover.jpg" />
@@ -16,7 +15,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.10 HTML widgets | bookdown" />
+  <meta name="twitter:title" content="2.10 HTML widgets | bookdown: Authoring Books and Technical Documents with R Markdown" />
   
   <meta name="twitter:description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="twitter:image" content="https://bookdown.org/yihui/bookdown//images/cover.jpg" />
@@ -235,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">bookdown</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Authoring Books and Technical Documents with R Markdown</a>
           </h1>
         </div>
 
@@ -245,12 +244,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="html-widgets" class="section level2">
 <h2><span class="header-section-number">2.10</span> HTML widgets</h2>
-<p>Although one of R’s greatest strengths is data visualization, there are a large number of JavaScript libraries for much richer data visualization. These libraries can be used to build interactive applications that can easily render in web browsers, so users do not need to install any additional software packages to view the visualizations. One way to bring these JavaScript libraries into R is through the <a href="http://htmlwidgets.org"><strong>htmlwidgets</strong></a> package.<span class="citation"><a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a></span>.</p>
-<p>HTML widgets can be rendered as a standalone web page (like an R plot), or embedded in R Markdown documents and Shiny applications. They were originally designed for HTML output only, and they require the availability of JavaScript, so they will not work in non-HTML output formats, such as LaTeX/PDF. Before <strong>knitr</strong> v1.13, you will get an error when you render HTML widgets to an output format that is not HTML. Since <strong>knitr</strong> v1.13, HTML widgets will be rendered automatically as screenshots taken via the <strong>webshot</strong> package.<span class="citation"><a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a></span> Of course, you need to install the <strong>webshot</strong> package. Additionally, you have to install PhantomJS (<a href="http://phantomjs.org" class="uri">http://phantomjs.org</a>), since it is what <strong>webshot</strong> uses to capture screenshots. Both <strong>webshot</strong> and PhantomJS can be installed automatically from R:</p>
+<p>Although one of R’s greatest strengths is data visualization, there are a large number of JavaScript libraries for much richer data visualization. These libraries can be used to build interactive applications that can easily render in web browsers, so users do not need to install any additional software packages to view the visualizations. One way to bring these JavaScript libraries into R is through the <a href="http://htmlwidgets.org"><strong>htmlwidgets</strong></a> package <span class="citation">(Vaidyanathan et al. <a href="#ref-R-htmlwidgets" role="doc-biblioref">2020</a>)</span>.</p>
+<p>HTML widgets can be rendered as a standalone web page (like an R plot), or embedded in R Markdown documents and Shiny applications. They were originally designed for HTML output only, and they require the availability of JavaScript, so they will not work in non-HTML output formats, such as LaTeX/PDF. Before <strong>knitr</strong> v1.13, you will get an error when you render HTML widgets to an output format that is not HTML. Since <strong>knitr</strong> v1.13, HTML widgets will be rendered automatically as screenshots taken via the <strong>webshot</strong> package <span class="citation">(Chang <a href="#ref-R-webshot" role="doc-biblioref">2019</a>)</span>. Of course, you need to install the <strong>webshot</strong> package. Additionally, you have to install PhantomJS (<a href="http://phantomjs.org" class="uri">http://phantomjs.org</a>), since it is what <strong>webshot</strong> uses to capture screenshots. Both <strong>webshot</strong> and PhantomJS can be installed automatically from R:</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="html-widgets.html#cb65-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;webshot&quot;</span>)</span>
 <span id="cb65-2"><a href="html-widgets.html#cb65-2"></a>webshot<span class="op">::</span><span class="kw">install_phantomjs</span>()</span></code></pre></div>
 <p>The function <code>install_phantomjs()</code> works for Windows, OS X, and Linux. You may also choose to download and install PhantomJS by yourself, if you are familiar with modifying the system environment variable <code>PATH</code>.</p>
-<p>When <strong>knitr</strong> detects an HTML widget object in a code chunk, it either renders the widget normally when the current output format is HTML, or saves the widget as an HTML page and calls <strong>webshot</strong> to capture the screen of the HTML page when the output format is not HTML. Here is an example of a table created from the <strong>DT</strong> package:<span class="citation"><a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a></span></p>
+<p>When <strong>knitr</strong> detects an HTML widget object in a code chunk, it either renders the widget normally when the current output format is HTML, or saves the widget as an HTML page and calls <strong>webshot</strong> to capture the screen of the HTML page when the output format is not HTML. Here is an example of a table created from the <strong>DT</strong> package <span class="citation">(Xie, Cheng, and Tan <a href="#ref-R-DT" role="doc-biblioref">2020</a>)</span>:</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="html-widgets.html#cb66-1"></a>DT<span class="op">::</span><span class="kw">datatable</span>(iris)</span></code></pre></div>
 <div class="figure"><span id="fig:DT-demo"></span>
 <div id="htmlwidget-18bad9226f453cb9c17b" style="width:100%;height:auto;" class="datatables html-widget"></div>
@@ -266,13 +265,17 @@ FIGURE 2.5: A table widget rendered via the DT package.
 <p>Fourth, if you feel it is slow to capture the screenshots, or do not want to do it every time the code chunk is executed, you may use the chunk option <code>cache = TRUE</code> to cache the chunk. Caching works for both HTML and non-HTML output formats.</p>
 <p>Screenshots behave like normal R plots in the sense that many chunk options related to figures also apply to screenshots, including <code>fig.width</code>, <code>fig.height</code>, <code>out.width</code>, <code>fig.cap</code>, and so on. So you can specify the size of screenshots in the output document, and assign figure captions to them as well. The image format of the automatic screenshots can be specified via the chunk option <code>dev</code>, and possible values are <code>pdf</code>, <code>png</code>, and <code>jpeg</code>. The default for PDF output is <code>pdf</code>, and it is <code>png</code> for other types of output. Note that <code>pdf</code> may not work as faithfully as <code>png</code>: sometimes there are certain elements on an HTML page that fail to render to the PDF screenshot, so you may want to use <code>dev = 'png'</code> even for PDF output. It depends on specific cases of HTML widgets, and you can try both <code>pdf</code> and <code>png</code> (or <code>jpeg</code>) before deciding which format is more desirable.</p>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="17">
-<li id="fn17"><p>Ramnath Vaidyanathan et al., <em>Htmlwidgets: HTML Widgets for R</em>, 2020, <a href="https://github.com/ramnathv/htmlwidgets" role="doc-biblioref">https://github.com/ramnathv/htmlwidgets</a>.<a href="html-widgets.html#fnref17" class="footnote-back">↩︎</a></p></li>
-<li id="fn18"><p>Winston Chang, <em>Webshot: Take Screenshots of Web Pages</em>, 2019, <a href="https://github.com/wch/webshot/" role="doc-biblioref">https://github.com/wch/webshot/</a>.<a href="html-widgets.html#fnref18" class="footnote-back">↩︎</a></p></li>
-<li id="fn19"><p>Yihui Xie, Joe Cheng, and Xianying Tan, <em>DT: A Wrapper of the Javascript Library Datatables</em>, 2020, <a href="https://github.com/rstudio/DT" role="doc-biblioref">https://github.com/rstudio/DT</a>.<a href="html-widgets.html#fnref19" class="footnote-back">↩︎</a></p></li>
-</ol>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-webshot">
+<p>Chang, Winston. 2019. <em>Webshot: Take Screenshots of Web Pages</em>. <a href="https://github.com/wch/webshot/">https://github.com/wch/webshot/</a>.</p>
+</div>
+<div id="ref-R-htmlwidgets">
+<p>Vaidyanathan, Ramnath, Yihui Xie, JJ Allaire, Joe Cheng, Carson Sievert, and Kenton Russell. 2020. <em>Htmlwidgets: HTML Widgets for R</em>. <a href="https://github.com/ramnathv/htmlwidgets">https://github.com/ramnathv/htmlwidgets</a>.</p>
+</div>
+<div id="ref-R-DT">
+<p>Xie, Yihui, Joe Cheng, and Xianying Tan. 2020. <em>DT: A Wrapper of the Javascript Library Datatables</em>. <a href="https://github.com/rstudio/DT">https://github.com/rstudio/DT</a>.</p>
+</div>
 </div>
             </section>
 

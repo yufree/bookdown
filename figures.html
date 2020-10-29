@@ -4,11 +4,10 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.4 Figures | bookdown</title>
+  <title>2.4 Figures | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
-  <meta name="generator" content="2.4 Figures | bookdown 0.21.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.4 Figures | bookdown" />
+  <meta property="og:title" content="2.4 Figures | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/yihui/bookdown/" />
   <meta property="og:image" content="https://bookdown.org/yihui/bookdown//images/cover.jpg" />
@@ -16,7 +15,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.4 Figures | bookdown" />
+  <meta name="twitter:title" content="2.4 Figures | bookdown: Authoring Books and Technical Documents with R Markdown" />
   
   <meta name="twitter:description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="twitter:image" content="https://bookdown.org/yihui/bookdown//images/cover.jpg" />
@@ -235,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">bookdown</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Authoring Books and Technical Documents with R Markdown</a>
           </h1>
         </div>
 
@@ -250,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb42-2"><a href="figures.html#cb42-2"></a><span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</span></code></pre></div>
 <p><img src="bookdown_files/figure-html/no-caption-1.svg" width="70%" /></p>
 <p>The disadvantage of typesetting figures in this way is that when there is not enough space on the current page to place a figure, it may either reach the bottom of the page (hence exceeds the page margin), or be pushed to the next page, leaving a large white margin at the bottom of the current page. That is basically why there are “floating environments” in LaTeX: elements that cannot be split over multiple pages (like figures) are put in floating environments, so they can float to a page that has enough space to hold them. There is also a disadvantage of floating things forward or backward, though. That is, readers may have to jump to a different page to find the figure mentioned on the current page. This is simply a natural consequence of having to typeset things on multiple pages of fixed sizes. This issue does not exist in HTML, however, since everything can be placed continuously on one single page (presumably with infinite height), and there is no need to split anything across multiple pages of the same page size.</p>
-<p>If we assign a figure caption to a code chunk via the chunk option <code>fig.cap</code>, R plots will be put into figure environments, which will be automatically labeled and numbered, and can also be cross-referenced. The label of a figure environment is generated from the label of the code chunk, e.g., if the chunk label is <code>foo</code>, the figure label will be <code>fig:foo</code> (the prefix <code>fig:</code> is added before <code>foo</code>). To reference a figure, use the syntax <code>\@ref(label)</code>,<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> where <code>label</code> is the figure label, e.g., <code>fig:foo</code>.</p>
+<p>If we assign a figure caption to a code chunk via the chunk option <code>fig.cap</code>, R plots will be put into figure environments, which will be automatically labeled and numbered, and can also be cross-referenced. The label of a figure environment is generated from the label of the code chunk, e.g., if the chunk label is <code>foo</code>, the figure label will be <code>fig:foo</code> (the prefix <code>fig:</code> is added before <code>foo</code>). To reference a figure, use the syntax <code>\@ref(label)</code>,<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> where <code>label</code> is the figure label, e.g., <code>fig:foo</code>.</p>
 <p>To take advantage of Markdown formatting <em>within</em> the figure caption, you will need to use text references (see Section <a href="markdown-extensions-by-bookdown.html#text-references">2.2.4</a>). For example, a figure caption that contains <code>_italic text_</code> will not work when the output format is LaTeX/PDF, since the underscore is a special character in LaTeX, but if you use text references, <code>_italic text_</code> will be translated to LaTeX code when the output is LaTeX.</p>
 
 <div class="rmdimportant">
@@ -303,8 +302,8 @@ FIGURE 2.4: Three knitr logos included in the document from an external PNG imag
 </div>
 <div class="footnotes">
 <hr />
-<ol start="13">
-<li id="fn13"><p>Do not forget the leading backslash! And also note the parentheses <code>()</code> after <code>ref</code>; they are not curly braces <code>{}</code>.<a href="figures.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<ol start="6">
+<li id="fn6"><p>Do not forget the leading backslash! And also note the parentheses <code>()</code> after <code>ref</code>; they are not curly braces <code>{}</code>.<a href="figures.html#fnref6" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
