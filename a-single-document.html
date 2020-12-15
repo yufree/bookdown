@@ -261,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##     pdf_book(..., base_format = rmarkdown::pdf_document)
 ## }
 ## &lt;environment: namespace:bookdown&gt;</code></pre>
-<p>After you know this fact, you can apply the same idea to other output formats by using the appropriate <code>base_format</code>. For example, you can port the <strong>bookdown</strong> features to the <code>jss_article</code> format in the <strong>rticles</strong> package <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-rticles"><strong>???</strong></span>)</span> by using the YAML metadata:</p>
+<p>After you know this fact, you can apply the same idea to other output formats by using the appropriate <code>base_format</code>. For example, you can port the <strong>bookdown</strong> features to the <code>jss_article</code> format in the <strong>rticles</strong> package <span class="citation">(Allaire, Xie, R Foundation, et al. <a href="#ref-R-rticles" role="doc-biblioref">2020</a>)</span> by using the YAML metadata:</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb92-1"><a href="a-single-document.html#cb92-1"></a><span class="fu">output</span><span class="kw">:</span></span>
 <span id="cb92-2"><a href="a-single-document.html#cb92-2"></a><span class="at">  bookdown:</span><span class="fu">:pdf_book</span><span class="kw">:</span></span>
 <span id="cb92-3"><a href="a-single-document.html#cb92-3"></a><span class="at">    </span><span class="fu">base_format</span><span class="kw">:</span><span class="at"> rticles::jss_article</span></span></code></pre></div>
@@ -270,6 +270,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 <!-- </div> -->
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-rticles">
+<p>Allaire, JJ, Yihui Xie, R Foundation, Hadley Wickham, Journal of Statistical Software, Ramnath Vaidyanathan, Association for Computing Machinery, et al. 2020. <em>Rticles: Article Formats for R Markdown</em>. <a href="https://github.com/rstudio/rticles">https://github.com/rstudio/rticles</a>.</p>
+</div>
+</div>
             </section>
 
           </div>
