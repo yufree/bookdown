@@ -10,6 +10,7 @@ thm:chf-sum
 prp:unnamed-chunk-12
 cor:unnamed-chunk-15
 exr:unnamed-chunk-16
+hyp:unnamed-chunk-18
 fig:pressure-plot
 fig:cars-plot
 fig:multi-plots

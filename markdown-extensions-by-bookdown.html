@@ -361,6 +361,11 @@ g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 <td align="left">Exercise</td>
 <td align="left">exr</td>
 </tr>
+<tr class="odd">
+<td align="left">hypothesis</td>
+<td align="left">Hypothesis</td>
+<td align="left">hyp</td>
+</tr>
 </tbody>
 </table>
 <p>To write other theorem environments, replace <code>```{theorem}</code> with other environment names in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a>, e.g., <code>```{lemma}</code>.</p>
@@ -393,7 +398,7 @@ and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</
 </div>
 
 <p>The proof environments currently supported are <code>proof</code>, <code>remark</code>, and <code>solution</code>. The syntax is similar to theorem environments, and proof environments can also be named. The only difference is that since they are unnumbered, you cannot reference them.</p>
-<p>We have tried to make all these theorem and proof environments work out of the box, no matter if your output is PDF, HTML, or EPUB. If you are a LaTeX or HTML expert, you may want to customize the style of these environments anyway (see Chapter <a href="customization.html#customization">4</a>). Customization in HTML is easy with CSS, and each environment is enclosed in <code>&lt;div&gt;&lt;/div&gt;</code> with the CSS class being the environment name, e.g., <code>&lt;div class="lemma"&gt;&lt;/div&gt;</code>. For LaTeX output, we have predefined the style to be <code>definition</code> for environments <code>definition</code>, <code>example</code>, and <code>exercise</code>, and <code>remark</code> for environments <code>proof</code> and <code>remark</code>. All other environments use the <code>plain</code> style. The style definition is done through the <code>\theoremstyle{}</code> command of the <strong>amsthm</strong> package.</p>
+<p>We have tried to make all these theorem and proof environments work out of the box, no matter if your output is PDF, HTML, or EPUB. If you are a LaTeX or HTML expert, you may want to customize the style of these environments anyway (see Chapter <a href="customization.html#customization">4</a>). Customization in HTML is easy with CSS, and each environment is enclosed in <code>&lt;div&gt;&lt;/div&gt;</code> with the CSS class being the environment name, e.g., <code>&lt;div class="lemma"&gt;&lt;/div&gt;</code>. For LaTeX output, we have predefined the style to be <code>definition</code> for environments <code>definition</code>, <code>example</code>, <code>exercise</code>, and <code>hypothesis</code>, and <code>remark</code> for environments <code>proof</code> and <code>remark</code>. All other environments use the <code>plain</code> style. The style definition is done through the <code>\theoremstyle{}</code> command of the <strong>amsthm</strong> package.</p>
 <p>Theorems are numbered by chapters by default. If there are no chapters in your document, they are numbered by sections instead. If the whole document is unnumbered (the output format option <code>number_sections = FALSE</code>), all theorems are numbered sequentially from 1, 2, …, N. LaTeX supports numbering one theorem environment after another, e.g., let theorems and lemmas share the same counter. This is not supported for HTML/EPUB output in <strong>bookdown</strong>. You can change the numbering scheme in the LaTeX preamble by defining your own theorem environments, e.g.,</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb35-1"><a href="markdown-extensions-by-bookdown.html#cb35-1"></a><span class="fu">\newtheorem</span>{theorem}{Theorem}</span>
 <span id="cb35-2"><a href="markdown-extensions-by-bookdown.html#cb35-2"></a><span class="fu">\newtheorem</span>{lemma}[theorem]{Lemma}</span></code></pre></div>
@@ -477,6 +482,13 @@ This is the characteristic function of a Poisson random variable with the parame
 <div class="solution">
 <p> <span class="solution"><em>Solution. </em></span> Applying Theorem <a href="markdown-extensions-by-bookdown.html#thm:chf-sum">2.2</a>, we have</p>
 <span class="math display">\[\varphi _{\bar{X}}(t)=\prod_{i=1}^n \varphi _{X_i}\left(\frac{t}{n}\right)=\left[\varphi _{X}\left(\frac{t}{n}\right)\right]^n.\]</span>
+</div>
+
+
+<div class="hypothesis">
+<span id="hyp:unnamed-chunk-18" class="hypothesis"><strong>Hypothesis 2.1  (Riemann hypothesis)  </strong></span>The Riemann Zeta-function is defined as
+<span class="math display">\[\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}\]</span>
+for complex values of <span class="math inline">\(s\)</span> and which converges when the real part of <span class="math inline">\(s\)</span> is greater than 1. The Riemann hypothesis is that the Riemann zeta function has its zeros only at the negative even integers and complex numbers with real part <span class="math inline">\(1/2\)</span>.
 </div>
 
 </div>
