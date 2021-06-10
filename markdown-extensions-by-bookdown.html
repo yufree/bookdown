@@ -307,14 +307,9 @@ g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 <h3><span class="header-section-number">2.2.2</span> Theorems and proofs</h3>
 <p>Theorems and proofs are commonly used in articles and books in mathematics. However, please do not be misled by the names: a “theorem” is just a numbered/labeled environment, and it does not have to be a mathematical theorem (e.g., it can be an example irrelevant to mathematics). Similarly, a “proof” is an unnumbered environment. In this section, we always use the <em>general</em> meanings of a “theorem” and “proof” unless explicitly stated.</p>
 <p>In <strong>bookdown</strong>, the types of theorem environments supported are in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a>. To write a theorem, you can use the syntax below:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb30-1"><a href="markdown-extensions-by-bookdown.html#cb30-1"></a>::: theorem</span>
-<span id="cb30-2"><a href="markdown-extensions-by-bookdown.html#cb30-2"></a>This is a <span class="bn">`theorem`</span> environment which can contain **any** _markdown_ syntax</span>
-<span id="cb30-3"><a href="markdown-extensions-by-bookdown.html#cb30-3"></a>:::</span></code></pre></div>
-<p>or the longer version</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb31-1"><a href="markdown-extensions-by-bookdown.html#cb31-1"></a>::: {.theorem}</span>
-<span id="cb31-2"><a href="markdown-extensions-by-bookdown.html#cb31-2"></a>This is a second theorem</span>
-<span id="cb31-3"><a href="markdown-extensions-by-bookdown.html#cb31-3"></a>:::</span></code></pre></div>
-<p>This syntax is based on Pandoc’s <a href="https://pandoc.org/MANUAL.html#divs-and-spans">fenced <code>Div</code> blocks</a> and can already be used in any R Markdown document to write <a href="https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html">Custom Block</a>. <strong>bookdown</strong> is only offering special handling for Theorems and Proofs environments. One important advantage of this syntax is that it is Pandoc’s Markdown and you can write any valid markdown inside the block.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb30-1"><a href="markdown-extensions-by-bookdown.html#cb30-1"></a><span class="bn">```{theorem}</span></span>
+<span id="cb30-2"><a href="markdown-extensions-by-bookdown.html#cb30-2"></a><span class="bn">Here is my theorem.</span></span>
+<span id="cb30-3"><a href="markdown-extensions-by-bookdown.html#cb30-3"></a><span class="bn">```</span></span></code></pre></div>
 
 <table>
 <caption><span id="tab:theorem-envs">TABLE 2.1: </span>Theorem environments in <strong>bookdown</strong>.</caption>
@@ -373,42 +368,55 @@ g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 </tr>
 </tbody>
 </table>
-<p>To write other theorem environments, replace <code>::: theorem</code> with other environment names in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a>, e.g., <code>::: lemma</code> .</p>
-<p>A theorem can have a <code>name</code> attribute so its name will be printed. In this case, the long version syntax must be used, e.g.,</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb32-1"><a href="markdown-extensions-by-bookdown.html#cb32-1"></a>::: {.theorem name=&quot;Pythagorean theorem&quot;}</span>
-<span id="cb32-2"><a href="markdown-extensions-by-bookdown.html#cb32-2"></a>For a right triangle, if $c$ denotes the length of the hypotenuse</span>
-<span id="cb32-3"><a href="markdown-extensions-by-bookdown.html#cb32-3"></a>and $a$ and $b$ denote the lengths of the other two sides, we have</span>
-<span id="cb32-4"><a href="markdown-extensions-by-bookdown.html#cb32-4"></a>$$a^2 + b^2 = c^2$$</span>
-<span id="cb32-5"><a href="markdown-extensions-by-bookdown.html#cb32-5"></a>:::</span></code></pre></div>
-<p>If you want to refer to a theorem, you should label it. The label can be written by adding an id to the block of the form <code>#label</code> e.g.,</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb33-1"><a href="markdown-extensions-by-bookdown.html#cb33-1"></a>::: {.theorem #foo}</span>
-<span id="cb33-2"><a href="markdown-extensions-by-bookdown.html#cb33-2"></a>A labeled theorem here.</span>
-<span id="cb33-3"><a href="markdown-extensions-by-bookdown.html#cb33-3"></a>:::</span></code></pre></div>
+<p>To write other theorem environments, replace <code>```{theorem}</code> with other environment names in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a>, e.g., <code>```{lemma}</code>.</p>
+<p>A theorem can have a <code>name</code> option so its name will be printed, e.g.,</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb31-1"><a href="markdown-extensions-by-bookdown.html#cb31-1"></a><span class="bn">```{theorem, name=&quot;Pythagorean theorem&quot;}</span></span>
+<span id="cb31-2"><a href="markdown-extensions-by-bookdown.html#cb31-2"></a><span class="bn">For a right triangle, if $c$ denotes the length of the hypotenuse</span></span>
+<span id="cb31-3"><a href="markdown-extensions-by-bookdown.html#cb31-3"></a><span class="bn">and $a$ and $b$ denote the lengths of the other two sides, we have</span></span>
+<span id="cb31-4"><a href="markdown-extensions-by-bookdown.html#cb31-4"></a><span class="bn">$$a^2 + b^2 = c^2$$</span></span>
+<span id="cb31-5"><a href="markdown-extensions-by-bookdown.html#cb31-5"></a><span class="bn">```</span></span></code></pre></div>
+<p>If you want to refer to a theorem, you should label it. The label can be written after <code>```{theorem</code>, e.g.,</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb32-1"><a href="markdown-extensions-by-bookdown.html#cb32-1"></a><span class="bn">```{theorem, label=&quot;foo&quot;}</span></span>
+<span id="cb32-2"><a href="markdown-extensions-by-bookdown.html#cb32-2"></a><span class="bn">A labeled theorem here.</span></span>
+<span id="cb32-3"><a href="markdown-extensions-by-bookdown.html#cb32-3"></a><span class="bn">```</span></span></code></pre></div>
+<p>The <code>label</code> option can be implicit, e.g., the following theorem has the label <code>bar</code>:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb33-1"><a href="markdown-extensions-by-bookdown.html#cb33-1"></a><span class="bn">```{theorem, bar}</span></span>
+<span id="cb33-2"><a href="markdown-extensions-by-bookdown.html#cb33-2"></a><span class="bn">A labeled theorem here.</span></span>
+<span id="cb33-3"><a href="markdown-extensions-by-bookdown.html#cb33-3"></a><span class="bn">```</span></span></code></pre></div>
 <p>After you label a theorem, you can refer to it using the syntax <code>\@ref(prefix:label)</code>. See the column <code>Label Prefix</code> in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a> for the value of <code>prefix</code> for each environment. For example, we have a labeled and named theorem below, and <code>\@ref(thm:pyth)</code> gives us its theorem number <a href="markdown-extensions-by-bookdown.html#thm:pyth">2.1</a>:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb34-1"><a href="markdown-extensions-by-bookdown.html#cb34-1"></a>::: {.theorem #pyth name=&quot;Pythagorean theorem&quot;}</span>
-<span id="cb34-2"><a href="markdown-extensions-by-bookdown.html#cb34-2"></a>For a right triangle, if $c$ denotes the length of the hypotenuse</span>
-<span id="cb34-3"><a href="markdown-extensions-by-bookdown.html#cb34-3"></a>and $a$ and $b$ denote the lengths of the other two sides, we have</span>
+<div class="sourceCode" id="cb34"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb34-1"><a href="markdown-extensions-by-bookdown.html#cb34-1"></a><span class="bn">```{theorem, pyth, name=&quot;Pythagorean theorem&quot;}</span></span>
+<span id="cb34-2"><a href="markdown-extensions-by-bookdown.html#cb34-2"></a><span class="bn">For a right triangle, if $c$ denotes the length of the hypotenuse</span></span>
+<span id="cb34-3"><a href="markdown-extensions-by-bookdown.html#cb34-3"></a><span class="bn">and $a$ and $b$ denote the lengths of the other two sides, we have</span></span>
 <span id="cb34-4"><a href="markdown-extensions-by-bookdown.html#cb34-4"></a></span>
-<span id="cb34-5"><a href="markdown-extensions-by-bookdown.html#cb34-5"></a>$$a^2 + b^2 = c^2$$</span>
-<span id="cb34-6"><a href="markdown-extensions-by-bookdown.html#cb34-6"></a>:::</span></code></pre></div>
+<span id="cb34-5"><a href="markdown-extensions-by-bookdown.html#cb34-5"></a><span class="bn">$$a^2 + b^2 = c^2$$</span></span>
+<span id="cb34-6"><a href="markdown-extensions-by-bookdown.html#cb34-6"></a><span class="bn">```</span></span></code></pre></div>
+
 <div class="theorem">
-<p><span id="thm:pyth" class="theorem"><strong>Theorem 2.1  (Pythagorean theorem) </strong></span>For a right triangle, if <span class="math inline">\(c\)</span> denotes the length of the hypotenuse
+<p><span id="thm:pyth" class="theorem"><strong>Theorem 2.1  (Pythagorean theorem)  </strong></span>For a right triangle, if <span class="math inline">\(c\)</span> denotes the length of the hypotenuse
 and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> denote the lengths of the other two sides, we have</p>
-<p><span class="math display">\[a^2 + b^2 = c^2\]</span></p>
+<span class="math display">\[a^2 + b^2 = c^2\]</span>
 </div>
-<p>The proof environments currently supported are <code>proof</code>, <code>remark</code>, and <code>solution</code>. The syntax is similar to theorem environments, and proof environments can also be named using the <code>name</code> attribute. The only difference is that since they are unnumbered, you cannot reference them. Setting an id will have not effect.</p>
-<p>We have tried to make all these theorem and proof environments work out of the box, no matter if your output is PDF or HTML. If you are a LaTeX or HTML expert, you may want to customize the style of these environments anyway (see Chapter <a href="customization.html#customization">4</a>). Customization in HTML is easy with CSS, and each environment is enclosed in <code>&lt;div&gt;&lt;/div&gt;</code> with the CSS class being the environment name, e.g., <code>&lt;div class="lemma"&gt;&lt;/div&gt;</code>. For LaTeX output, we have predefined the style to be <code>definition</code> for environments <code>definition</code>, <code>example</code>, <code>exercise</code>, and <code>hypothesis</code>, and <code>remark</code> for environments <code>proof</code> and <code>remark</code>. All other environments use the <code>plain</code> style. The style definition is done through the <code>\theoremstyle{}</code> command of the <strong>amsthm</strong> package. If you don’t want the default theorem definitions to happen, you can set the option <code>bookdown.theorem.preamble</code> to FALSE. This can be useful for example to avoid conflict in <a href="a-single-document.html#a-single-document">single document project</a> using <code>pdf_book()</code> with a <code>base_format</code> already including <strong>amsmath</strong> definition.</p>
+
+<p>The proof environments currently supported are <code>proof</code>, <code>remark</code>, and <code>solution</code>. The syntax is similar to theorem environments, and proof environments can also be named. The only difference is that since they are unnumbered, you cannot reference them.</p>
+<p>We have tried to make all these theorem and proof environments work out of the box, no matter if your output is PDF, HTML, or EPUB. If you are a LaTeX or HTML expert, you may want to customize the style of these environments anyway (see Chapter <a href="customization.html#customization">4</a>). Customization in HTML is easy with CSS, and each environment is enclosed in <code>&lt;div&gt;&lt;/div&gt;</code> with the CSS class being the environment name, e.g., <code>&lt;div class="lemma"&gt;&lt;/div&gt;</code>. For LaTeX output, we have predefined the style to be <code>definition</code> for environments <code>definition</code>, <code>example</code>, <code>exercise</code>, and <code>hypothesis</code>, and <code>remark</code> for environments <code>proof</code> and <code>remark</code>. All other environments use the <code>plain</code> style. The style definition is done through the <code>\theoremstyle{}</code> command of the <strong>amsthm</strong> package.</p>
 <p>Theorems are numbered by chapters by default. If there are no chapters in your document, they are numbered by sections instead. If the whole document is unnumbered (the output format option <code>number_sections = FALSE</code>), all theorems are numbered sequentially from 1, 2, …, N. LaTeX supports numbering one theorem environment after another, e.g., let theorems and lemmas share the same counter. This is not supported for HTML/EPUB output in <strong>bookdown</strong>. You can change the numbering scheme in the LaTeX preamble by defining your own theorem environments, e.g.,</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb35-1"><a href="markdown-extensions-by-bookdown.html#cb35-1"></a><span class="fu">\newtheorem</span>{theorem}{Theorem}</span>
 <span id="cb35-2"><a href="markdown-extensions-by-bookdown.html#cb35-2"></a><span class="fu">\newtheorem</span>{lemma}[theorem]{Lemma}</span></code></pre></div>
 <p>When <strong>bookdown</strong> detects <code>\newtheorem{theorem}</code> in your LaTeX preamble, it will not write out its default theorem definitions, which means you have to define all theorem environments by yourself. For the sake of simplicity and consistency, we do not recommend that you do this. It can be confusing when your Theorem 18 in PDF becomes Theorem 2.4 in HTML.</p>
+<p>Theorem and proof environments will be hidden if the chunk option <code>echo</code> is set to <code>FALSE</code>. To make sure they are always shown, you may add the chunk option <code>echo=TRUE</code>, e.g.,</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb36-1"><a href="markdown-extensions-by-bookdown.html#cb36-1"></a><span class="bn">```{theorem, echo=TRUE}</span></span>
+<span id="cb36-2"><a href="markdown-extensions-by-bookdown.html#cb36-2"></a><span class="bn">Here is my theorem.</span></span>
+<span id="cb36-3"><a href="markdown-extensions-by-bookdown.html#cb36-3"></a><span class="bn">```</span></span></code></pre></div>
 <p>Below we show more examples<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> of the theorem and proof environments, so you can see the default styles in <strong>bookdown</strong>.</p>
+
 <div class="definition">
-<p><span id="def:unlabeled-div-1" class="definition"><strong>Definition 2.1  </strong></span>The characteristic function of a random variable <span class="math inline">\(X\)</span> is defined by</p>
-<p><span class="math display">\[\varphi _{X}(t)=\operatorname {E} \left[e^{itX}\right], \; t\in\mathcal{R}\]</span></p>
+<p><span id="def:unnamed-chunk-10" class="definition"><strong>Definition 2.1  </strong></span>The characteristic function of a random variable <span class="math inline">\(X\)</span> is defined by</p>
+<span class="math display">\[\varphi _{X}(t)=\operatorname {E} \left[e^{itX}\right], \; t\in\mathcal{R}\]</span>
 </div>
+
+
 <div class="example">
-<p><span id="exm:unlabeled-div-2" class="example"><strong>Example 2.1  </strong></span>We derive the characteristic function of <span class="math inline">\(X\sim U(0,1)\)</span> with the probability density function <span class="math inline">\(f(x)=\mathbf{1}_{x \in [0,1]}\)</span>.</p>
+<p><span id="exm:unnamed-chunk-11" class="example"><strong>Example 2.1  </strong></span>We derive the characteristic function of <span class="math inline">\(X\sim U(0,1)\)</span> with the probability density function <span class="math inline">\(f(x)=\mathbf{1}_{x \in [0,1]}\)</span>.</p>
 <p><span class="math display">\[\begin{equation*}
 \begin{split}
 \varphi _{X}(t) &amp;= \operatorname {E} \left[e^{itX}\right]\\
@@ -421,21 +429,29 @@ and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</
  &amp; =\frac{e^{it}-1}{it}
 \end{split}
 \end{equation*}\]</span></p>
-<p>Note that we used the fact <span class="math inline">\(e^{ix}=\cos(x)+i\sin(x)\)</span> twice.</p>
+Note that we used the fact <span class="math inline">\(e^{ix}=\cos(x)+i\sin(x)\)</span> twice.
 </div>
+
+
 <div class="lemma">
 <p><span id="lem:chf-pdf" class="lemma"><strong>Lemma 2.1  </strong></span>For any two random variables <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, they both have the same probability distribution if and only if</p>
-<p><span class="math display">\[\varphi _{X_1}(t)=\varphi _{X_2}(t)\]</span></p>
+<span class="math display">\[\varphi _{X_1}(t)=\varphi _{X_2}(t)\]</span>
 </div>
+
+
 <div class="theorem">
 <p><span id="thm:chf-sum" class="theorem"><strong>Theorem 2.2  </strong></span>If <span class="math inline">\(X_1\)</span>, …, <span class="math inline">\(X_n\)</span> are independent random variables, and <span class="math inline">\(a_1\)</span>, …, <span class="math inline">\(a_n\)</span> are some constants, then the characteristic function of the linear combination <span class="math inline">\(S_n=\sum_{i=1}^na_iX_i\)</span> is</p>
-<p><span class="math display">\[\varphi _{S_{n}}(t)=\prod_{i=1}^n\varphi _{X_i}(a_{i}t)=\varphi _{X_{1}}(a_{1}t)\cdots \varphi _{X_{n}}(a_{n}t)\]</span></p>
+<span class="math display">\[\varphi _{S_{n}}(t)=\prod_{i=1}^n\varphi _{X_i}(a_{i}t)=\varphi _{X_{1}}(a_{1}t)\cdots \varphi _{X_{n}}(a_{n}t)\]</span>
 </div>
+
+
 <div class="proposition">
-<p><span id="prp:unlabeled-div-3" class="proposition"><strong>Proposition 2.1  </strong></span>The distribution of the sum of independent Poisson random variables <span class="math inline">\(X_i \sim \mathrm{Pois}(\lambda_i),\: i=1,2,\cdots,n\)</span> is <span class="math inline">\(\mathrm{Pois}(\sum_{i=1}^n\lambda_i)\)</span>.</p>
+<span id="prp:unnamed-chunk-12" class="proposition"><strong>Proposition 2.1  </strong></span>The distribution of the sum of independent Poisson random variables <span class="math inline">\(X_i \sim \mathrm{Pois}(\lambda_i),\: i=1,2,\cdots,n\)</span> is <span class="math inline">\(\mathrm{Pois}(\sum_{i=1}^n\lambda_i)\)</span>.
 </div>
+
+
 <div class="proof">
-<p><span id="unlabeled-div-4" class="proof"><em>Proof</em>. </span>The characteristic function of <span class="math inline">\(X\sim\mathrm{Pois}(\lambda)\)</span> is <span class="math inline">\(\varphi _{X}(t)=e^{\lambda (e^{it}-1)}\)</span>. Let <span class="math inline">\(P_n=\sum_{i=1}^nX_i\)</span>. We know from Theorem <a href="markdown-extensions-by-bookdown.html#thm:chf-sum">2.2</a> that</p>
+<p> <span class="proof"><em>Proof. </em></span> The characteristic function of <span class="math inline">\(X\sim\mathrm{Pois}(\lambda)\)</span> is <span class="math inline">\(\varphi _{X}(t)=e^{\lambda (e^{it}-1)}\)</span>. Let <span class="math inline">\(P_n=\sum_{i=1}^nX_i\)</span>. We know from Theorem <a href="markdown-extensions-by-bookdown.html#thm:chf-sum">2.2</a> that</p>
 <p><span class="math display">\[\begin{equation*}
 \begin{split}
 \varphi _{P_{n}}(t) &amp; =\prod_{i=1}^n\varphi _{X_i}(t) \\
@@ -443,48 +459,38 @@ and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</
 &amp; = e^{\sum_{i=1}^n \lambda_i (e^{it}-1)}
 \end{split}
 \end{equation*}\]</span></p>
-<p>This is the characteristic function of a Poisson random variable with the parameter <span class="math inline">\(\lambda=\sum_{i=1}^n \lambda_i\)</span>. From Lemma <a href="markdown-extensions-by-bookdown.html#lem:chf-pdf">2.1</a>, we know the distribution of <span class="math inline">\(P_n\)</span> is <span class="math inline">\(\mathrm{Pois}(\sum_{i=1}^n\lambda_i)\)</span>.</p>
+This is the characteristic function of a Poisson random variable with the parameter <span class="math inline">\(\lambda=\sum_{i=1}^n \lambda_i\)</span>. From Lemma <a href="markdown-extensions-by-bookdown.html#lem:chf-pdf">2.1</a>, we know the distribution of <span class="math inline">\(P_n\)</span> is <span class="math inline">\(\mathrm{Pois}(\sum_{i=1}^n\lambda_i)\)</span>.
 </div>
+
+
 <div class="remark">
-<p><span id="unlabeled-div-5" class="remark"><em>Remark</em>. </span>In some cases, it is very convenient and easy to figure out the distribution of the sum of independent random variables using characteristic functions.</p>
+ <span class="remark"><em>Remark. </em></span> In some cases, it is very convenient and easy to figure out the distribution of the sum of independent random variables using characteristic functions.
 </div>
+
+
 <div class="corollary">
-<p><span id="cor:unlabeled-div-6" class="corollary"><strong>Corollary 2.1  </strong></span>The characteristic function of the sum of two independent random variables <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> is the product of characteristic functions of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>, i.e.,</p>
-<p><span class="math display">\[\varphi _{X_1+X_2}(t)=\varphi _{X_1}(t) \varphi _{X_2}(t)\]</span></p>
+<p><span id="cor:unnamed-chunk-15" class="corollary"><strong>Corollary 2.1  </strong></span>The characteristic function of the sum of two independent random variables <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> is the product of characteristic functions of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>, i.e.,</p>
+<span class="math display">\[\varphi _{X_1+X_2}(t)=\varphi _{X_1}(t) \varphi _{X_2}(t)\]</span>
 </div>
+
+
 <div class="exercise">
-<p><span id="exr:unlabeled-div-7" class="exercise"><strong>Exercise 2.1  (Characteristic Function of the Sample Mean) </strong></span>Let <span class="math inline">\(\bar{X}=\sum_{i=1}^n \frac{1}{n} X_i\)</span> be the sample mean of <span class="math inline">\(n\)</span> independent and identically distributed random variables, each with characteristic function <span class="math inline">\(\varphi _{X}\)</span>. Compute the characteristic function of <span class="math inline">\(\bar{X}\)</span>.</p>
+<span id="exr:unnamed-chunk-16" class="exercise"><strong>Exercise 2.1  (Characteristic Function of the Sample Mean)  </strong></span>Let <span class="math inline">\(\bar{X}=\sum_{i=1}^n \frac{1}{n} X_i\)</span> be the sample mean of <span class="math inline">\(n\)</span> independent and identically distributed random variables, each with characteristic function <span class="math inline">\(\varphi _{X}\)</span>. Compute the characteristic function of <span class="math inline">\(\bar{X}\)</span>.
 </div>
+
+
 <div class="solution">
-<p><span id="unlabeled-div-8" class="solution"><em>Solution</em>. </span>Applying Theorem <a href="markdown-extensions-by-bookdown.html#thm:chf-sum">2.2</a>, we have</p>
-<p><span class="math display">\[\varphi _{\bar{X}}(t)=\prod_{i=1}^n \varphi _{X_i}\left(\frac{t}{n}\right)=\left[\varphi _{X}\left(\frac{t}{n}\right)\right]^n.\]</span></p>
+<p> <span class="solution"><em>Solution. </em></span> Applying Theorem <a href="markdown-extensions-by-bookdown.html#thm:chf-sum">2.2</a>, we have</p>
+<span class="math display">\[\varphi _{\bar{X}}(t)=\prod_{i=1}^n \varphi _{X_i}\left(\frac{t}{n}\right)=\left[\varphi _{X}\left(\frac{t}{n}\right)\right]^n.\]</span>
 </div>
+
+
 <div class="hypothesis">
-<p><span id="hyp:unlabeled-div-9" class="hypothesis"><strong>Hypothesis 2.1  (Riemann hypothesis) </strong></span>The Riemann Zeta-function is defined as
+<span id="hyp:unnamed-chunk-18" class="hypothesis"><strong>Hypothesis 2.1  (Riemann hypothesis)  </strong></span>The Riemann Zeta-function is defined as
 <span class="math display">\[\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}\]</span>
-for complex values of <span class="math inline">\(s\)</span> and which converges when the real part of <span class="math inline">\(s\)</span> is greater than 1. The Riemann hypothesis is that the Riemann zeta function has its zeros only at the negative even integers and complex numbers with real part <span class="math inline">\(1/2\)</span>.</p>
+for complex values of <span class="math inline">\(s\)</span> and which converges when the real part of <span class="math inline">\(s\)</span> is greater than 1. The Riemann hypothesis is that the Riemann zeta function has its zeros only at the negative even integers and complex numbers with real part <span class="math inline">\(1/2\)</span>.
 </div>
-<div id="theorem-engine" class="section level4">
-<h4><span class="header-section-number">2.2.2.1</span> About the old syntax using <strong>knitr</strong> engine</h4>
-<p>Previously a <code>theorem</code> environment could be written like this</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb36-1"><a href="markdown-extensions-by-bookdown.html#cb36-1"></a><span class="bn">```{theorem pyth, name=&quot;Pythagorean theorem&quot;}</span></span>
-<span id="cb36-2"><a href="markdown-extensions-by-bookdown.html#cb36-2"></a><span class="bn">For a right triangle, if $c$ denotes the length of the hypotenuse</span></span>
-<span id="cb36-3"><a href="markdown-extensions-by-bookdown.html#cb36-3"></a><span class="bn">and $a$ and $b$ denote the lengths of the other two sides, we have</span></span>
-<span id="cb36-4"><a href="markdown-extensions-by-bookdown.html#cb36-4"></a></span>
-<span id="cb36-5"><a href="markdown-extensions-by-bookdown.html#cb36-5"></a><span class="bn">$$a^2 + b^2 = c^2$$</span></span>
-<span id="cb36-6"><a href="markdown-extensions-by-bookdown.html#cb36-6"></a><span class="bn">```</span></span></code></pre></div>
-<p>This syntax still works and still needs to be used with other format than HTML or PDF for now as these custom blocks using Fenced <code>Div</code> only work for HTML and PDF. When possible, we no longer advice to use this syntax and prefer the new one. If you can’t, know that this is still supported for backward compatibility.</p>
-<p>This conversion between the two syntax is pretty straightforward. The above should be rewritten this way:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb37-1"><a href="markdown-extensions-by-bookdown.html#cb37-1"></a>::: {.theorem #pyth name=&quot;Pythagorean theorem&quot;}</span>
-<span id="cb37-2"><a href="markdown-extensions-by-bookdown.html#cb37-2"></a>For a right triangle, if $c$ denotes the length of the hypotenuse</span>
-<span id="cb37-3"><a href="markdown-extensions-by-bookdown.html#cb37-3"></a>and $a$ and $b$ denote the lengths of the other two sides, we have</span>
-<span id="cb37-4"><a href="markdown-extensions-by-bookdown.html#cb37-4"></a></span>
-<span id="cb37-5"><a href="markdown-extensions-by-bookdown.html#cb37-5"></a>$$a^2 + b^2 = c^2$$</span>
-<span id="cb37-6"><a href="markdown-extensions-by-bookdown.html#cb37-6"></a>:::</span></code></pre></div>
-<p>You can use the helper function <code>bookdown::fence_theorems()</code> to convert a whole file or a text. This is a one-time operation. We tried to do the conversion from old to new syntax safely but some edge case could have been missed. For safety, the function will not replace inside the <code>input</code> file by default and will write into a new file:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="markdown-extensions-by-bookdown.html#cb38-1"></a>bookdown<span class="op">::</span><span class="kw">fence_theorems</span>(<span class="st">&quot;01-intro.Rmd&quot;</span>, <span class="dt">output =</span> <span class="st">&quot;01-intro-new.Rmd&quot;</span>)</span></code></pre></div>
-<p>Using <code>output = NULL</code> will print the result of conversion in R console and is another way to check the conversion. If you are using a control version tool, you can set <code>output</code> and <code>input</code> to the same value as this will be safe enough for you to revert back if something is not right.</p>
-</div>
+
 </div>
 <div id="special-headers" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> Special headers</h3>
@@ -515,15 +521,15 @@ for complex values of <span class="math inline">\(s\)</span> and which converges
 <h3><span class="header-section-number">2.2.4</span> Text references</h3>
 <p>You can assign some text to a label and reference the text using the label elsewhere in your document. This can be particularly useful for long figure/table captions (Section <a href="figures.html#figures">2.4</a> and <a href="tables.html#tables">2.5</a>), in which case you normally will have to write the whole character string in the chunk header (e.g., <code>fig.cap = "A long long figure caption."</code>) or your R code (e.g., <code>kable(caption = "A long long table caption.")</code>). It is also useful when these captions contain special HTML or LaTeX characters, e.g., if the figure caption contains an underscore, it works in the HTML output but may not work in LaTeX output because the underscore must be escaped in LaTeX.</p>
 <p>The syntax for a text reference is <code>(ref:label) text</code>, where <code>label</code> is a unique label<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> throughout the document for <code>text</code>. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb41-1"><a href="markdown-extensions-by-bookdown.html#cb41-1"></a>(ref:foo) Define a text reference **here**. </span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb39-1"><a href="markdown-extensions-by-bookdown.html#cb39-1"></a>(ref:foo) Define a text reference **here**. </span></code></pre></div>
 <p>Then you can use <code>(ref:foo)</code> in your figure/table captions. The text can contain anything that Markdown supports, as long as it is one single paragraph. Here is a complete example:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb42-1"><a href="markdown-extensions-by-bookdown.html#cb42-1"></a>A normal paragraph.</span>
-<span id="cb42-2"><a href="markdown-extensions-by-bookdown.html#cb42-2"></a></span>
-<span id="cb42-3"><a href="markdown-extensions-by-bookdown.html#cb42-3"></a>(ref:foo) A scatterplot of the data <span class="bn">`cars`</span> using **base** R graphics. </span>
-<span id="cb42-4"><a href="markdown-extensions-by-bookdown.html#cb42-4"></a></span>
-<span id="cb42-5"><a href="markdown-extensions-by-bookdown.html#cb42-5"></a><span class="bn">```{r foo, fig.cap=&#39;(ref:foo)&#39;}</span></span>
-<span id="cb42-6"><a href="markdown-extensions-by-bookdown.html#cb42-6"></a><span class="bn">plot(cars)  # a scatterplot</span></span>
-<span id="cb42-7"><a href="markdown-extensions-by-bookdown.html#cb42-7"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb40-1"><a href="markdown-extensions-by-bookdown.html#cb40-1"></a>A normal paragraph.</span>
+<span id="cb40-2"><a href="markdown-extensions-by-bookdown.html#cb40-2"></a></span>
+<span id="cb40-3"><a href="markdown-extensions-by-bookdown.html#cb40-3"></a>(ref:foo) A scatterplot of the data <span class="bn">`cars`</span> using **base** R graphics. </span>
+<span id="cb40-4"><a href="markdown-extensions-by-bookdown.html#cb40-4"></a></span>
+<span id="cb40-5"><a href="markdown-extensions-by-bookdown.html#cb40-5"></a><span class="bn">```{r foo, fig.cap=&#39;(ref:foo)&#39;}</span></span>
+<span id="cb40-6"><a href="markdown-extensions-by-bookdown.html#cb40-6"></a><span class="bn">plot(cars)  # a scatterplot</span></span>
+<span id="cb40-7"><a href="markdown-extensions-by-bookdown.html#cb40-7"></a><span class="bn">```</span></span></code></pre></div>
 <p>Text references can be used anywhere in the document (not limited to figure captions). It can also be useful if you want to reuse a fragment of text in multiple places.</p>
 </div>
 </div>
