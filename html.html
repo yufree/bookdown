@@ -291,22 +291,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb73-9"><a href="html.html#cb73-9"></a><span class="at">      </span><span class="fu">position</span><span class="kw">:</span><span class="at"> fixed</span></span>
 <span id="cb73-10"><a href="html.html#cb73-10"></a><span class="at">    </span><span class="fu">edit </span><span class="kw">:</span><span class="at"> </span><span class="ch">null</span></span>
 <span id="cb73-11"><a href="html.html#cb73-11"></a><span class="at">    </span><span class="fu">download</span><span class="kw">:</span><span class="at"> </span><span class="ch">null</span></span>
-<span id="cb73-12"><a href="html.html#cb73-12"></a><span class="at">    </span><span class="fu">search</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
-<span id="cb73-13"><a href="html.html#cb73-13"></a><span class="at">    </span><span class="fu">fontsettings</span><span class="kw">:</span></span>
-<span id="cb73-14"><a href="html.html#cb73-14"></a><span class="at">      </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> white</span></span>
-<span id="cb73-15"><a href="html.html#cb73-15"></a><span class="at">      </span><span class="fu">family</span><span class="kw">:</span><span class="at"> sans</span></span>
-<span id="cb73-16"><a href="html.html#cb73-16"></a><span class="at">      </span><span class="fu">size</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
-<span id="cb73-17"><a href="html.html#cb73-17"></a><span class="at">    </span><span class="fu">sharing</span><span class="kw">:</span></span>
-<span id="cb73-18"><a href="html.html#cb73-18"></a><span class="at">      </span><span class="fu">facebook</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
-<span id="cb73-19"><a href="html.html#cb73-19"></a><span class="at">      </span><span class="fu">github</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
-<span id="cb73-20"><a href="html.html#cb73-20"></a><span class="at">      </span><span class="fu">twitter</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
-<span id="cb73-21"><a href="html.html#cb73-21"></a><span class="at">      </span><span class="fu">linkedin</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
-<span id="cb73-22"><a href="html.html#cb73-22"></a><span class="at">      </span><span class="fu">weibo</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
-<span id="cb73-23"><a href="html.html#cb73-23"></a><span class="at">      </span><span class="fu">instapaper</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
-<span id="cb73-24"><a href="html.html#cb73-24"></a><span class="at">      </span><span class="fu">vk</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
-<span id="cb73-25"><a href="html.html#cb73-25"></a><span class="at">      </span><span class="fu">whatsapp</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
-<span id="cb73-26"><a href="html.html#cb73-26"></a><span class="at">      </span><span class="fu">all</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&#39;facebook&#39;</span><span class="kw">,</span><span class="at"> </span><span class="st">&#39;twitter&#39;</span><span class="kw">,</span><span class="at"> </span><span class="st">&#39;linkedin&#39;</span><span class="kw">,</span><span class="at"> </span><span class="st">&#39;weibo&#39;</span><span class="kw">,</span><span class="at"> </span><span class="st">&#39;instapaper&#39;</span><span class="kw">]</span></span>
-<span id="cb73-27"><a href="html.html#cb73-27"></a><span class="at">    </span><span class="fu">info</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span></code></pre></div>
+<span id="cb73-12"><a href="html.html#cb73-12"></a><span class="at">    </span><span class="fu">search</span><span class="kw">:</span></span>
+<span id="cb73-13"><a href="html.html#cb73-13"></a><span class="at">      </span><span class="fu">engine</span><span class="kw">:</span><span class="at"> lunr</span><span class="co"> # or fuse</span></span>
+<span id="cb73-14"><a href="html.html#cb73-14"></a><span class="co">      # options to control/tune search engine behaviour (for</span></span>
+<span id="cb73-15"><a href="html.html#cb73-15"></a><span class="co">      # fuse.js, refer to https://fusejs.io/api/options.html)</span></span>
+<span id="cb73-16"><a href="html.html#cb73-16"></a><span class="at">      </span><span class="fu">options</span><span class="kw">:</span><span class="at"> </span><span class="ch">null</span></span>
+<span id="cb73-17"><a href="html.html#cb73-17"></a><span class="at">    </span><span class="fu">fontsettings</span><span class="kw">:</span></span>
+<span id="cb73-18"><a href="html.html#cb73-18"></a><span class="at">      </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> white</span></span>
+<span id="cb73-19"><a href="html.html#cb73-19"></a><span class="at">      </span><span class="fu">family</span><span class="kw">:</span><span class="at"> sans</span></span>
+<span id="cb73-20"><a href="html.html#cb73-20"></a><span class="at">      </span><span class="fu">size</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb73-21"><a href="html.html#cb73-21"></a><span class="at">    </span><span class="fu">sharing</span><span class="kw">:</span></span>
+<span id="cb73-22"><a href="html.html#cb73-22"></a><span class="at">      </span><span class="fu">facebook</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb73-23"><a href="html.html#cb73-23"></a><span class="at">      </span><span class="fu">github</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
+<span id="cb73-24"><a href="html.html#cb73-24"></a><span class="at">      </span><span class="fu">twitter</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb73-25"><a href="html.html#cb73-25"></a><span class="at">      </span><span class="fu">linkedin</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
+<span id="cb73-26"><a href="html.html#cb73-26"></a><span class="at">      </span><span class="fu">weibo</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
+<span id="cb73-27"><a href="html.html#cb73-27"></a><span class="at">      </span><span class="fu">instapaper</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
+<span id="cb73-28"><a href="html.html#cb73-28"></a><span class="at">      </span><span class="fu">vk</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
+<span id="cb73-29"><a href="html.html#cb73-29"></a><span class="at">      </span><span class="fu">whatsapp</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
+<span id="cb73-30"><a href="html.html#cb73-30"></a><span class="at">      </span><span class="fu">all</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&#39;facebook&#39;</span><span class="kw">,</span><span class="at"> </span><span class="st">&#39;twitter&#39;</span><span class="kw">,</span><span class="at"> </span><span class="st">&#39;linkedin&#39;</span><span class="kw">,</span><span class="at"> </span><span class="st">&#39;weibo&#39;</span><span class="kw">,</span><span class="at"> </span><span class="st">&#39;instapaper&#39;</span><span class="kw">]</span></span>
+<span id="cb73-31"><a href="html.html#cb73-31"></a><span class="at">    </span><span class="fu">info</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span></code></pre></div>
 <p>The <code>toc</code> option controls the behavior of the table of contents (TOC). You can collapse some items initially when a page is loaded via the <code>collapse</code> option. Its possible values are <code>subsection</code>, <code>section</code>, <code>none</code> (or <code>null</code>). This option can be helpful if your TOC is very long and has more than three levels of headings: <code>subsection</code> means collapsing all TOC items for subsections (X.X.X), <code>section</code> means those items for sections (X.X) so only the top-level headings are displayed initially, and <code>none</code> means not collapsing any items in the TOC. For those collapsed TOC items, you can toggle their visibility by clicking their parent TOC items. For example, you can click a chapter title in the TOC to show/hide its sections.</p>
 <p>The <code>scroll_highlight</code> option in <code>toc</code> indicates whether to enable highlighting of TOC items as you scroll the book body (by default this feature is enabled). Whenever a new header comes into the current viewport as you scroll down/up, the corresponding item in TOC on the left will be highlighted.</p>
 <p>Since the sidebar has a fixed width, when an item in the TOC is truncated because the heading text is too wide, you can hover the cursor over it to see a tooltip showing the full text.</p>
@@ -529,6 +533,10 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "none"
 }
