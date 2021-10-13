@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.1 Markdown syntax | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
+  <meta name="generator" content="bookdown 0.24.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.1 Markdown syntax | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -23,6 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
+<meta name="date" content="2021-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +33,9 @@
   
 <link rel="prev" href="components.html"/>
 <link rel="next" href="markdown-extensions-by-bookdown.html"/>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/header-attrs/header-attrs.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -47,8 +51,6 @@
 
 
 
-
-<script src="libs/accessible-code-block/empty-anchor.js"></script>
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
 <script src="libs/htmlwidgets/htmlwidgets.js"></script>
@@ -62,18 +64,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -93,7 +95,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -126,11 +128,33 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
-<body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
+<body>
 
 
 
@@ -143,27 +167,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Authoring Books with R Markdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
 <li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
 <li class="chapter" data-level="" data-path="structure-of-the-book.html"><a href="structure-of-the-book.html"><i class="fa fa-check"></i>Structure of the book</a></li>
 <li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1.2</b> Get started</a></li>
 <li class="chapter" data-level="1.3" data-path="usage.html"><a href="usage.html"><i class="fa fa-check"></i><b>1.3</b> Usage</a></li>
 <li class="chapter" data-level="1.4" data-path="new-session.html"><a href="new-session.html"><i class="fa fa-check"></i><b>1.4</b> Two rendering approaches</a></li>
 <li class="chapter" data-level="1.5" data-path="some-tips.html"><a href="some-tips.html"><i class="fa fa-check"></i><b>1.5</b> Some tips</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a><ul>
-<li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a><ul>
+<li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html#inline-formatting"><i class="fa fa-check"></i><b>2.1.1</b> Inline formatting</a></li>
 <li class="chapter" data-level="2.1.2" data-path="markdown-syntax.html"><a href="markdown-syntax.html#block-level-elements"><i class="fa fa-check"></i><b>2.1.2</b> Block-level elements</a></li>
 <li class="chapter" data-level="2.1.3" data-path="markdown-syntax.html"><a href="markdown-syntax.html#math-expressions"><i class="fa fa-check"></i><b>2.1.3</b> Math expressions</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a><ul>
+<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#equations"><i class="fa fa-check"></i><b>2.2.1</b> Number and reference equations</a></li>
 <li class="chapter" data-level="2.2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#theorems"><i class="fa fa-check"></i><b>2.2.2</b> Theorems and proofs</a></li>
 <li class="chapter" data-level="2.2.3" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#special-headers"><i class="fa fa-check"></i><b>2.2.3</b> Special headers</a></li>
@@ -179,45 +208,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.10" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.10</b> HTML widgets</a></li>
 <li class="chapter" data-level="2.11" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.11</b> Web pages and Shiny apps</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a><ul>
-<li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a><ul>
+<li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="html.html"><a href="html.html#gitbook-style"><i class="fa fa-check"></i><b>3.1.1</b> GitBook style</a></li>
-<li class="chapter" data-level="3.1.2" data-path="html.html"><a href="html.html#bootstrap-style"><i class="fa fa-check"></i><b>3.1.2</b> Bootstrap style</a></li>
-<li class="chapter" data-level="3.1.3" data-path="html.html"><a href="html.html#tufte-style"><i class="fa fa-check"></i><b>3.1.3</b> Tufte style</a></li>
+<li class="chapter" data-level="3.1.2" data-path="html.html"><a href="html.html#bs4-book"><i class="fa fa-check"></i><b>3.1.2</b> Three-column Bootstrap style</a></li>
+<li class="chapter" data-level="3.1.3" data-path="html.html"><a href="html.html#bootstrap-style"><i class="fa fa-check"></i><b>3.1.3</b> The default Bootstrap style</a></li>
+<li class="chapter" data-level="3.1.4" data-path="html.html"><a href="html.html#tufte-style"><i class="fa fa-check"></i><b>3.1.4</b> Tufte style</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="latexpdf.html"><a href="latexpdf.html"><i class="fa fa-check"></i><b>3.2</b> LaTeX/PDF</a></li>
-<li class="chapter" data-level="3.3" data-path="e-books.html"><a href="e-books.html"><i class="fa fa-check"></i><b>3.3</b> E-Books</a><ul>
+<li class="chapter" data-level="3.3" data-path="e-books.html"><a href="e-books.html"><i class="fa fa-check"></i><b>3.3</b> E-Books</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="e-books.html"><a href="e-books.html#epub"><i class="fa fa-check"></i><b>3.3.1</b> EPUB</a></li>
 <li class="chapter" data-level="3.3.2" data-path="e-books.html"><a href="e-books.html#mobi"><i class="fa fa-check"></i><b>3.3.2</b> MOBI</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="a-single-document.html"><a href="a-single-document.html"><i class="fa fa-check"></i><b>3.4</b> A single document</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="customization.html"><a href="customization.html"><i class="fa fa-check"></i><b>4</b> Customization</a><ul>
+<li class="chapter" data-level="4" data-path="customization.html"><a href="customization.html"><i class="fa fa-check"></i><b>4</b> Customization</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="yaml-options.html"><a href="yaml-options.html"><i class="fa fa-check"></i><b>4.1</b> YAML options</a></li>
 <li class="chapter" data-level="4.2" data-path="theming.html"><a href="theming.html"><i class="fa fa-check"></i><b>4.2</b> Theming</a></li>
 <li class="chapter" data-level="4.3" data-path="templates.html"><a href="templates.html"><i class="fa fa-check"></i><b>4.3</b> Templates</a></li>
 <li class="chapter" data-level="4.4" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>4.4</b> Configuration</a></li>
 <li class="chapter" data-level="4.5" data-path="internationalization.html"><a href="internationalization.html"><i class="fa fa-check"></i><b>4.5</b> Internationalization</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="editing.html"><a href="editing.html"><i class="fa fa-check"></i><b>5</b> Editing</a><ul>
+<li class="chapter" data-level="5" data-path="editing.html"><a href="editing.html"><i class="fa fa-check"></i><b>5</b> Editing</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="build-the-book.html"><a href="build-the-book.html"><i class="fa fa-check"></i><b>5.1</b> Build the book</a></li>
 <li class="chapter" data-level="5.2" data-path="preview-a-chapter.html"><a href="preview-a-chapter.html"><i class="fa fa-check"></i><b>5.2</b> Preview a chapter</a></li>
 <li class="chapter" data-level="5.3" data-path="serve-the-book.html"><a href="serve-the-book.html"><i class="fa fa-check"></i><b>5.3</b> Serve the book</a></li>
 <li class="chapter" data-level="5.4" data-path="rstudio-ide.html"><a href="rstudio-ide.html"><i class="fa fa-check"></i><b>5.4</b> RStudio IDE</a></li>
 <li class="chapter" data-level="5.5" data-path="collaboration.html"><a href="collaboration.html"><i class="fa fa-check"></i><b>5.5</b> Collaboration</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
-<li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
+<li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html#netlify-subdomain"><i class="fa fa-check"></i><b>6.1.1</b> <em>Optional: change the default subdomain</em></a></li>
+<li class="chapter" data-level="6.1.2" data-path="rstudio-connect.html"><a href="rstudio-connect.html#drawbacks-and-alternatives"><i class="fa fa-check"></i><b>6.1.2</b> Drawbacks and alternatives</a></li>
+</ul></li>
 <li class="chapter" data-level="6.2" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.2</b> GitHub</a></li>
-<li class="chapter" data-level="6.3" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.3</b> Publishers</a></li>
+<li class="chapter" data-level="6.3" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html"><i class="fa fa-check"></i><b>6.3</b> Features for HTML publishing</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html#html-404"><i class="fa fa-check"></i><b>6.3.1</b> HTML 404 pages</a></li>
+<li class="chapter" data-level="6.3.2" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html#metadata-for-sharing"><i class="fa fa-check"></i><b>6.3.2</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.4</b> Publishers</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a>
+<ul>
 <li class="chapter" data-level="A.1" data-path="r-and-r-packages.html"><a href="r-and-r-packages.html"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
 <li class="chapter" data-level="A.2" data-path="pandoc.html"><a href="pandoc.html"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
 <li class="chapter" data-level="A.3" data-path="latex.html"><a href="latex.html"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="software-usage.html"><a href="software-usage.html"><i class="fa fa-check"></i><b>B</b> Software Usage</a><ul>
+<li class="chapter" data-level="B" data-path="software-usage.html"><a href="software-usage.html"><i class="fa fa-check"></i><b>B</b> Software Usage</a>
+<ul>
 <li class="chapter" data-level="B.1" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>B.1</b> knitr</a></li>
 <li class="chapter" data-level="B.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>B.2</b> R Markdown</a></li>
 </ul></li>
@@ -243,29 +290,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="markdown-syntax" class="section level2">
+<div id="markdown-syntax" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Markdown syntax</h2>
 <p>In this section, we give a very brief introduction to Pandoc’s Markdown. Readers who are familiar with Markdown can skip this section. The comprehensive syntax of Pandoc’s Markdown can be found on the Pandoc website <a href="http://pandoc.org" class="uri">http://pandoc.org</a>.</p>
-<div id="inline-formatting" class="section level3">
+<div id="inline-formatting" class="section level3" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Inline formatting</h3>
-<p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). Text surrounded by <code>~</code> will be converted to a subscript (e.g., <code>H~2~SO~4~</code> renders H<sub>2</sub>SO<sub>4</sub>), and similarly, two carets (<code>^</code>) produce a superscript (e.g., <code>Fe^2+^</code> renders Fe<sup>2+</sup>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code>.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> Small caps can be produced by the HTML tag <code>span</code>, e.g., <code>&lt;span style="font-variant:small-caps;"&gt;Small Caps&lt;/span&gt;</code> renders <span class="smallcaps">Small Caps</span>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](https://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section <a href="citations.html#citations">2.8</a>.</p>
+<p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). Text surrounded by <code>~</code> will be converted to a subscript (e.g., <code>H~2~SO~4~</code> renders H<sub>2</sub>SO<sub>4</sub>), and similarly, two carets (<code>^</code>) produce a superscript (e.g., <code>Fe^2+^</code> renders Fe<sup>2+</sup>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code>.<a href="references.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> Small caps can be produced by the HTML tag <code>span</code>, e.g., <code>&lt;span style="font-variant:small-caps;"&gt;Small Caps&lt;/span&gt;</code> renders <span class="smallcaps">Small Caps</span>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](https://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section <a href="citations.html#citations">2.8</a>.</p>
 </div>
-<div id="block-level-elements" class="section level3">
+<div id="block-level-elements" class="section level3" number="2.1.2">
 <h3><span class="header-section-number">2.1.2</span> Block-level elements</h3>
 <p>Section headers can be written after a number of pound signs, e.g.,</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="markdown-syntax.html#cb16-1"></a><span class="fu"># First-level header</span></span>
-<span id="cb16-2"><a href="markdown-syntax.html#cb16-2"></a></span>
-<span id="cb16-3"><a href="markdown-syntax.html#cb16-3"></a><span class="fu">## Second-level header</span></span>
-<span id="cb16-4"><a href="markdown-syntax.html#cb16-4"></a></span>
-<span id="cb16-5"><a href="markdown-syntax.html#cb16-5"></a><span class="fu">### Third-level header</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="markdown-syntax.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># First-level header</span></span>
+<span id="cb16-2"><a href="markdown-syntax.html#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="markdown-syntax.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Second-level header</span></span>
+<span id="cb16-4"><a href="markdown-syntax.html#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="markdown-syntax.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### Third-level header</span></span></code></pre></div>
 <p>If you do not want a certain heading to be numbered, you can add <code>{-}</code> after the heading, e.g.,</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="markdown-syntax.html#cb17-1"></a><span class="fu"># Preface {-}</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="markdown-syntax.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Preface {-}</span></span></code></pre></div>
 <p>Unordered list items start with <code>*</code>, <code>-</code>, or <code>+</code>, and you can nest one list within another list by indenting the sub-list by four spaces, e.g.,</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="markdown-syntax.html#cb18-1"></a>- <span class="st">one item</span></span>
-<span id="cb18-2"><a href="markdown-syntax.html#cb18-2"></a><span class="st">- one item</span></span>
-<span id="cb18-3"><a href="markdown-syntax.html#cb18-3"></a><span class="st">- one item</span></span>
-<span id="cb18-4"><a href="markdown-syntax.html#cb18-4"></a><span class="st">    - one item</span></span>
-<span id="cb18-5"><a href="markdown-syntax.html#cb18-5"></a><span class="st">    - one item</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="markdown-syntax.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>one item</span>
+<span id="cb18-2"><a href="markdown-syntax.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>one item</span>
+<span id="cb18-3"><a href="markdown-syntax.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>one item</span>
+<span id="cb18-4"><a href="markdown-syntax.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>one item</span>
+<span id="cb18-5"><a href="markdown-syntax.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>one item</span></code></pre></div>
 <p>The output is:</p>
 <ul>
 <li>one item</li>
@@ -277,9 +324,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 <p>Ordered list items start with numbers (the rule for nested lists is the same as above), e.g.,</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb19-1"><a href="markdown-syntax.html#cb19-1"></a>1. <span class="st">the first item</span></span>
-<span id="cb19-2"><a href="markdown-syntax.html#cb19-2"></a><span class="st">2. the second item</span></span>
-<span id="cb19-3"><a href="markdown-syntax.html#cb19-3"></a><span class="st">3. the third item</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb19-1"><a href="markdown-syntax.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>the first item</span>
+<span id="cb19-2"><a href="markdown-syntax.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>the second item</span>
+<span id="cb19-3"><a href="markdown-syntax.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>the third item</span></code></pre></div>
 <p>The output does not look too much different with the Markdown source:</p>
 <ol style="list-style-type: decimal">
 <li>the first item</li>
@@ -287,11 +334,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>the third item</li>
 </ol>
 <p>Blockquotes are written after <code>&gt;</code>, e.g.,</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb20-1"><a href="markdown-syntax.html#cb20-1"></a>&gt;<span class="dt"> &quot;I thoroughly disapprove of duels. If a man should challenge me,</span></span>
-<span id="cb20-2"><a href="markdown-syntax.html#cb20-2"></a><span class="dt">  I would take him kindly and forgivingly by the hand and lead him</span></span>
-<span id="cb20-3"><a href="markdown-syntax.html#cb20-3"></a><span class="dt">  to a quiet place and kill him.&quot;</span></span>
-<span id="cb20-4"><a href="markdown-syntax.html#cb20-4"></a><span class="dt">&gt;</span></span>
-<span id="cb20-5"><a href="markdown-syntax.html#cb20-5"></a><span class="dt">&gt; --- Mark Twain</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb20-1"><a href="markdown-syntax.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; &quot;I thoroughly disapprove of duels. If a man should challenge me,</span></span>
+<span id="cb20-2"><a href="markdown-syntax.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="at">  I would take him kindly and forgivingly by the hand and lead him</span></span>
+<span id="cb20-3"><a href="markdown-syntax.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="at">  to a quiet place and kill him.&quot;</span></span>
+<span id="cb20-4"><a href="markdown-syntax.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb20-5"><a href="markdown-syntax.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; --- Mark Twain</span></span></code></pre></div>
 <p>The actual output (we customized the style for blockquotes in this book):</p>
 <blockquote>
 <p>“I thoroughly disapprove of duels. If a man should challenge me,
@@ -300,54 +347,48 @@ to a quiet place and kill him.”</p>
 <p>— Mark Twain</p>
 </blockquote>
 <p>Plain code blocks can be written after three or more backticks, and you can also indent the blocks by four spaces, e.g.,</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb21-1"><a href="markdown-syntax.html#cb21-1"></a><span class="bn">```</span></span>
-<span id="cb21-2"><a href="markdown-syntax.html#cb21-2"></a><span class="bn">This text is displayed verbatim / preformatted</span></span>
-<span id="cb21-3"><a href="markdown-syntax.html#cb21-3"></a><span class="bn">```</span></span>
-<span id="cb21-4"><a href="markdown-syntax.html#cb21-4"></a></span>
-<span id="cb21-5"><a href="markdown-syntax.html#cb21-5"></a>Or indent by four spaces:</span>
-<span id="cb21-6"><a href="markdown-syntax.html#cb21-6"></a></span>
-<span id="cb21-7"><a href="markdown-syntax.html#cb21-7"></a><span class="bn">    This text is displayed verbatim / preformatted</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb21-1"><a href="markdown-syntax.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-2"><a href="markdown-syntax.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="in">This text is displayed verbatim / preformatted</span></span>
+<span id="cb21-3"><a href="markdown-syntax.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-4"><a href="markdown-syntax.html#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="markdown-syntax.html#cb21-5" aria-hidden="true" tabindex="-1"></a>Or indent by four spaces:</span>
+<span id="cb21-6"><a href="markdown-syntax.html#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="markdown-syntax.html#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="in">    This text is displayed verbatim / preformatted</span></span></code></pre></div>
 </div>
-<div id="math-expressions" class="section level3">
+<div id="math-expressions" class="section level3" number="2.1.3">
 <h3><span class="header-section-number">2.1.3</span> Math expressions</h3>
 <p>Inline LaTeX equations can be written in a pair of dollar signs using the LaTeX syntax, e.g., <code>$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$</code> (actual output: <span class="math inline">\(f(k)={n \choose k}p^{k}(1-p)^{n-k}\)</span>); math expressions of the display style can be written in a pair of double dollar signs, e.g., <code>$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$</code>, and the output looks like this:</p>
 <p><span class="math display">\[f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k}\]</span></p>
 <p>You can also use math environments inside <code>$ $</code> or <code>$$ $$</code>, e.g.,</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb22-1"><a href="markdown-syntax.html#cb22-1"></a><span class="ss">$$</span><span class="sc">\begin</span><span class="ss">{array}{ccc}</span></span>
-<span id="cb22-2"><a href="markdown-syntax.html#cb22-2"></a><span class="ss">x_{11} &amp; x_{12} &amp; x_{13}</span><span class="sc">\\</span></span>
-<span id="cb22-3"><a href="markdown-syntax.html#cb22-3"></a><span class="ss">x_{21} &amp; x_{22} &amp; x_{23}</span></span>
-<span id="cb22-4"><a href="markdown-syntax.html#cb22-4"></a><span class="sc">\end</span><span class="ss">{array}$$</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb22-1"><a href="markdown-syntax.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span><span class="kw">\begin</span>{<span class="ex">array</span>}<span class="ss">{ccc}</span></span>
+<span id="cb22-2"><a href="markdown-syntax.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ss">x_{11} &amp; x_{12} &amp; x_{13}</span><span class="sc">\\</span></span>
+<span id="cb22-3"><a href="markdown-syntax.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="ss">x_{21} &amp; x_{22} &amp; x_{23}</span></span>
+<span id="cb22-4"><a href="markdown-syntax.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">array</span>}<span class="ss">$$</span></span></code></pre></div>
 <p><span class="math display">\[\begin{array}{ccc}
 x_{11} &amp; x_{12} &amp; x_{13}\\
 x_{21} &amp; x_{22} &amp; x_{23}
 \end{array}\]</span></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb23-1"><a href="markdown-syntax.html#cb23-1"></a><span class="ss">$$X = </span><span class="sc">\begin</span><span class="ss">{bmatrix}1 &amp; x_{1}</span><span class="sc">\\</span></span>
-<span id="cb23-2"><a href="markdown-syntax.html#cb23-2"></a><span class="ss">1 &amp; x_{2}</span><span class="sc">\\</span></span>
-<span id="cb23-3"><a href="markdown-syntax.html#cb23-3"></a><span class="ss">1 &amp; x_{3}</span></span>
-<span id="cb23-4"><a href="markdown-syntax.html#cb23-4"></a><span class="sc">\end</span><span class="ss">{bmatrix}$$</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb23-1"><a href="markdown-syntax.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$$X = </span><span class="kw">\begin</span>{<span class="ex">bmatrix</span>}<span class="ss">1 &amp; x_{1}</span><span class="sc">\\</span></span>
+<span id="cb23-2"><a href="markdown-syntax.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ss">1 &amp; x_{2}</span><span class="sc">\\</span></span>
+<span id="cb23-3"><a href="markdown-syntax.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ss">1 &amp; x_{3}</span></span>
+<span id="cb23-4"><a href="markdown-syntax.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">bmatrix</span>}<span class="ss">$$</span></span></code></pre></div>
 <p><span class="math display">\[X = \begin{bmatrix}1 &amp; x_{1}\\
 1 &amp; x_{2}\\
 1 &amp; x_{3}
 \end{bmatrix}\]</span></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb24-1"><a href="markdown-syntax.html#cb24-1"></a><span class="ss">$$</span><span class="sc">\Theta</span><span class="ss"> = </span><span class="sc">\begin</span><span class="ss">{pmatrix}</span><span class="sc">\alpha</span><span class="ss"> &amp; </span><span class="sc">\beta\\</span></span>
-<span id="cb24-2"><a href="markdown-syntax.html#cb24-2"></a><span class="sc">\gamma</span><span class="ss"> &amp; </span><span class="sc">\delta</span></span>
-<span id="cb24-3"><a href="markdown-syntax.html#cb24-3"></a><span class="sc">\end</span><span class="ss">{pmatrix}$$</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb24-1"><a href="markdown-syntax.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span><span class="sc">\Theta</span><span class="ss"> = </span><span class="kw">\begin</span>{<span class="ex">pmatrix</span>}<span class="sc">\alpha</span><span class="ss"> &amp; </span><span class="sc">\beta\\</span></span>
+<span id="cb24-2"><a href="markdown-syntax.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="sc">\gamma</span><span class="ss"> &amp; </span><span class="sc">\delta</span></span>
+<span id="cb24-3"><a href="markdown-syntax.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">pmatrix</span>}<span class="ss">$$</span></span></code></pre></div>
 <p><span class="math display">\[\Theta = \begin{pmatrix}\alpha &amp; \beta\\
 \gamma &amp; \delta
 \end{pmatrix}\]</span></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb25-1"><a href="markdown-syntax.html#cb25-1"></a><span class="ss">$$</span><span class="sc">\begin</span><span class="ss">{vmatrix}a &amp; b</span><span class="sc">\\</span></span>
-<span id="cb25-2"><a href="markdown-syntax.html#cb25-2"></a><span class="ss">c &amp; d</span></span>
-<span id="cb25-3"><a href="markdown-syntax.html#cb25-3"></a><span class="sc">\end</span><span class="ss">{vmatrix}=ad-bc$$</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb25-1"><a href="markdown-syntax.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span><span class="kw">\begin</span>{<span class="ex">vmatrix</span>}<span class="ss">a &amp; b</span><span class="sc">\\</span></span>
+<span id="cb25-2"><a href="markdown-syntax.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ss">c &amp; d</span></span>
+<span id="cb25-3"><a href="markdown-syntax.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">vmatrix</span>}<span class="ss">=ad-bc$$</span></span></code></pre></div>
 <p><span class="math display">\[\begin{vmatrix}a &amp; b\\
 c &amp; d
 \end{vmatrix}=ad-bc\]</span></p>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="3">
-<li id="fn3"><p>To include literal backticks, use more backticks outside, e.g., you can use two backticks to preserve one backtick inside: <code>`` `code` ``</code>.<a href="markdown-syntax.html#fnref3" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
@@ -359,7 +400,6 @@ c &amp; d
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
@@ -387,7 +427,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/02-components.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/main/inst/examples/02-components.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -400,7 +440,7 @@ gitbook.start({
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

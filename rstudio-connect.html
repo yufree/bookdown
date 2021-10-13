@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.1 RStudio Connect | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
+  <meta name="generator" content="bookdown 0.24.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.1 RStudio Connect | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -23,6 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
+<meta name="date" content="2021-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +33,9 @@
   
 <link rel="prev" href="publishing.html"/>
 <link rel="next" href="github.html"/>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/header-attrs/header-attrs.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -47,8 +51,6 @@
 
 
 
-
-<script src="libs/accessible-code-block/empty-anchor.js"></script>
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
 <script src="libs/htmlwidgets/htmlwidgets.js"></script>
@@ -62,18 +64,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -93,7 +95,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -126,11 +128,33 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
-<body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
+<body>
 
 
 
@@ -143,27 +167,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Authoring Books with R Markdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
 <li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
 <li class="chapter" data-level="" data-path="structure-of-the-book.html"><a href="structure-of-the-book.html"><i class="fa fa-check"></i>Structure of the book</a></li>
 <li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1.2</b> Get started</a></li>
 <li class="chapter" data-level="1.3" data-path="usage.html"><a href="usage.html"><i class="fa fa-check"></i><b>1.3</b> Usage</a></li>
 <li class="chapter" data-level="1.4" data-path="new-session.html"><a href="new-session.html"><i class="fa fa-check"></i><b>1.4</b> Two rendering approaches</a></li>
 <li class="chapter" data-level="1.5" data-path="some-tips.html"><a href="some-tips.html"><i class="fa fa-check"></i><b>1.5</b> Some tips</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a><ul>
-<li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a><ul>
+<li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html#inline-formatting"><i class="fa fa-check"></i><b>2.1.1</b> Inline formatting</a></li>
 <li class="chapter" data-level="2.1.2" data-path="markdown-syntax.html"><a href="markdown-syntax.html#block-level-elements"><i class="fa fa-check"></i><b>2.1.2</b> Block-level elements</a></li>
 <li class="chapter" data-level="2.1.3" data-path="markdown-syntax.html"><a href="markdown-syntax.html#math-expressions"><i class="fa fa-check"></i><b>2.1.3</b> Math expressions</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a><ul>
+<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#equations"><i class="fa fa-check"></i><b>2.2.1</b> Number and reference equations</a></li>
 <li class="chapter" data-level="2.2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#theorems"><i class="fa fa-check"></i><b>2.2.2</b> Theorems and proofs</a></li>
 <li class="chapter" data-level="2.2.3" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#special-headers"><i class="fa fa-check"></i><b>2.2.3</b> Special headers</a></li>
@@ -179,45 +208,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.10" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.10</b> HTML widgets</a></li>
 <li class="chapter" data-level="2.11" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.11</b> Web pages and Shiny apps</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a><ul>
-<li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a><ul>
+<li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="html.html"><a href="html.html#gitbook-style"><i class="fa fa-check"></i><b>3.1.1</b> GitBook style</a></li>
-<li class="chapter" data-level="3.1.2" data-path="html.html"><a href="html.html#bootstrap-style"><i class="fa fa-check"></i><b>3.1.2</b> Bootstrap style</a></li>
-<li class="chapter" data-level="3.1.3" data-path="html.html"><a href="html.html#tufte-style"><i class="fa fa-check"></i><b>3.1.3</b> Tufte style</a></li>
+<li class="chapter" data-level="3.1.2" data-path="html.html"><a href="html.html#bs4-book"><i class="fa fa-check"></i><b>3.1.2</b> Three-column Bootstrap style</a></li>
+<li class="chapter" data-level="3.1.3" data-path="html.html"><a href="html.html#bootstrap-style"><i class="fa fa-check"></i><b>3.1.3</b> The default Bootstrap style</a></li>
+<li class="chapter" data-level="3.1.4" data-path="html.html"><a href="html.html#tufte-style"><i class="fa fa-check"></i><b>3.1.4</b> Tufte style</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="latexpdf.html"><a href="latexpdf.html"><i class="fa fa-check"></i><b>3.2</b> LaTeX/PDF</a></li>
-<li class="chapter" data-level="3.3" data-path="e-books.html"><a href="e-books.html"><i class="fa fa-check"></i><b>3.3</b> E-Books</a><ul>
+<li class="chapter" data-level="3.3" data-path="e-books.html"><a href="e-books.html"><i class="fa fa-check"></i><b>3.3</b> E-Books</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="e-books.html"><a href="e-books.html#epub"><i class="fa fa-check"></i><b>3.3.1</b> EPUB</a></li>
 <li class="chapter" data-level="3.3.2" data-path="e-books.html"><a href="e-books.html#mobi"><i class="fa fa-check"></i><b>3.3.2</b> MOBI</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="a-single-document.html"><a href="a-single-document.html"><i class="fa fa-check"></i><b>3.4</b> A single document</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="customization.html"><a href="customization.html"><i class="fa fa-check"></i><b>4</b> Customization</a><ul>
+<li class="chapter" data-level="4" data-path="customization.html"><a href="customization.html"><i class="fa fa-check"></i><b>4</b> Customization</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="yaml-options.html"><a href="yaml-options.html"><i class="fa fa-check"></i><b>4.1</b> YAML options</a></li>
 <li class="chapter" data-level="4.2" data-path="theming.html"><a href="theming.html"><i class="fa fa-check"></i><b>4.2</b> Theming</a></li>
 <li class="chapter" data-level="4.3" data-path="templates.html"><a href="templates.html"><i class="fa fa-check"></i><b>4.3</b> Templates</a></li>
 <li class="chapter" data-level="4.4" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>4.4</b> Configuration</a></li>
 <li class="chapter" data-level="4.5" data-path="internationalization.html"><a href="internationalization.html"><i class="fa fa-check"></i><b>4.5</b> Internationalization</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="editing.html"><a href="editing.html"><i class="fa fa-check"></i><b>5</b> Editing</a><ul>
+<li class="chapter" data-level="5" data-path="editing.html"><a href="editing.html"><i class="fa fa-check"></i><b>5</b> Editing</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="build-the-book.html"><a href="build-the-book.html"><i class="fa fa-check"></i><b>5.1</b> Build the book</a></li>
 <li class="chapter" data-level="5.2" data-path="preview-a-chapter.html"><a href="preview-a-chapter.html"><i class="fa fa-check"></i><b>5.2</b> Preview a chapter</a></li>
 <li class="chapter" data-level="5.3" data-path="serve-the-book.html"><a href="serve-the-book.html"><i class="fa fa-check"></i><b>5.3</b> Serve the book</a></li>
 <li class="chapter" data-level="5.4" data-path="rstudio-ide.html"><a href="rstudio-ide.html"><i class="fa fa-check"></i><b>5.4</b> RStudio IDE</a></li>
 <li class="chapter" data-level="5.5" data-path="collaboration.html"><a href="collaboration.html"><i class="fa fa-check"></i><b>5.5</b> Collaboration</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
-<li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
+<li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html#netlify-subdomain"><i class="fa fa-check"></i><b>6.1.1</b> <em>Optional: change the default subdomain</em></a></li>
+<li class="chapter" data-level="6.1.2" data-path="rstudio-connect.html"><a href="rstudio-connect.html#drawbacks-and-alternatives"><i class="fa fa-check"></i><b>6.1.2</b> Drawbacks and alternatives</a></li>
+</ul></li>
 <li class="chapter" data-level="6.2" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.2</b> GitHub</a></li>
-<li class="chapter" data-level="6.3" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.3</b> Publishers</a></li>
+<li class="chapter" data-level="6.3" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html"><i class="fa fa-check"></i><b>6.3</b> Features for HTML publishing</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html#html-404"><i class="fa fa-check"></i><b>6.3.1</b> HTML 404 pages</a></li>
+<li class="chapter" data-level="6.3.2" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html#metadata-for-sharing"><i class="fa fa-check"></i><b>6.3.2</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.4</b> Publishers</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a>
+<ul>
 <li class="chapter" data-level="A.1" data-path="r-and-r-packages.html"><a href="r-and-r-packages.html"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
 <li class="chapter" data-level="A.2" data-path="pandoc.html"><a href="pandoc.html"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
 <li class="chapter" data-level="A.3" data-path="latex.html"><a href="latex.html"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="software-usage.html"><a href="software-usage.html"><i class="fa fa-check"></i><b>B</b> Software Usage</a><ul>
+<li class="chapter" data-level="B" data-path="software-usage.html"><a href="software-usage.html"><i class="fa fa-check"></i><b>B</b> Software Usage</a>
+<ul>
 <li class="chapter" data-level="B.1" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>B.1</b> knitr</a></li>
 <li class="chapter" data-level="B.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>B.2</b> R Markdown</a></li>
 </ul></li>
@@ -243,15 +290,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="rstudio-connect" class="section level2">
+<div id="rstudio-connect" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> RStudio Connect</h2>
 <p>In theory, you can render the book by yourself and publish the output anywhere you want. For example, you can host the HTML files on your own web server. We have provided a function <code>publish_book()</code> in <strong>bookdown</strong> to make it very simple to upload your book to <a href="https://bookdown.org" class="uri">https://bookdown.org</a>, which is a website provided by RStudio to host your books for free. This website is built on top of <a href="https://www.rstudio.com/products/connect/">“RStudio Connect”,</a> an RStudio product that allows you to deploy a variety of R-related applications to a server, including R Markdown documents, Shiny applications, R plots, and so on.</p>
 <p>You do not have to know much about RStudio Connect to publish your book to bookdown.org. Basically you sign up at <a href="https://bookdown.org/connect/" class="uri">https://bookdown.org/connect/</a>, and the first time you try to run <code>bookdown::publish_book()</code>, you will be asked to authorize <strong>bookdown</strong> to publish to your bookdown.org account. In the future, you simply call <code>publish_book()</code> again and <strong>bookdown</strong> will no longer ask for anything.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="rstudio-connect.html#cb117-1"></a><span class="kw">publish_book</span>(<span class="dt">name =</span> <span class="ot">NULL</span>, <span class="dt">account =</span> <span class="ot">NULL</span>, <span class="dt">server =</span> <span class="ot">NULL</span>,</span>
-<span id="cb117-2"><a href="rstudio-connect.html#cb117-2"></a>  <span class="dt">render =</span> <span class="kw">c</span>(<span class="st">&quot;none&quot;</span>, <span class="st">&quot;local&quot;</span>, <span class="st">&quot;server&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="rstudio-connect.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">publish_book</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">account =</span> <span class="cn">NULL</span>, <span class="at">server =</span> <span class="cn">NULL</span>,</span>
+<span id="cb123-2"><a href="rstudio-connect.html#cb123-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">render =</span> <span class="fu">c</span>(<span class="st">&quot;none&quot;</span>, <span class="st">&quot;local&quot;</span>, <span class="st">&quot;server&quot;</span>))</span></code></pre></div>
 <p>The only argument of <code>publish_book()</code> that you may want to touch is <code>render</code>. It determines whether you want to render the book before publishing. If you have run <code>render_book()</code> before, you do not need to change this argument, otherwise you may set it to <code>'local'</code>:</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="rstudio-connect.html#cb118-1"></a>bookdown<span class="op">::</span><span class="kw">publish_book</span>(<span class="dt">render =</span> <span class="st">&quot;local&quot;</span>)</span></code></pre></div>
-<p>If you have set up your own RStudio Connect server, you can certainly publish the book to that server instead of bookdown.org.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="rstudio-connect.html#cb124-1" aria-hidden="true" tabindex="-1"></a>bookdown<span class="sc">::</span><span class="fu">publish_book</span>(<span class="at">render =</span> <span class="st">&#39;local&#39;</span>)</span>
+<span id="cb124-2"><a href="rstudio-connect.html#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="st">````</span></span>
+<span id="cb124-3"><a href="rstudio-connect.html#cb124-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-4"><a href="rstudio-connect.html#cb124-4" aria-hidden="true" tabindex="-1"></a>If you have set up your own RStudio Connect server, you can certainly publish the book to that server instead of bookdown.org.</span>
+<span id="cb124-5"><a href="rstudio-connect.html#cb124-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-6"><a href="rstudio-connect.html#cb124-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Netlify Drop</span></span>
+<span id="cb124-7"><a href="rstudio-connect.html#cb124-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-8"><a href="rstudio-connect.html#cb124-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Netlify</span> (<span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>netlify.com<span class="sc">&gt;</span>) is a platform that offers cloud hosting and serverless backend services <span class="cf">for</span> static websites. Netlify offers both free and paid tiers <span class="cf">for</span> service, but they also offer a service called Netlify <span class="fu">Drop</span> (<span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>app.netlify.com<span class="sc">/</span>drop<span class="sc">&gt;</span>), which is a free publishing option that does not require a Netlify account to start. This option does not rely on your <span class="sc">**</span>bookdown<span class="sc">**</span> project being <span class="cf">in</span> a version<span class="sc">-</span>controlled repository. All you need is a <span class="sc">**</span>bookdown<span class="sc">**</span> project that you can build locally.</span>
+<span id="cb124-9"><a href="rstudio-connect.html#cb124-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-10"><a href="rstudio-connect.html#cb124-10" aria-hidden="true" tabindex="-1"></a><span class="do">### The build-and-deploy pipeline sequence</span></span>
+<span id="cb124-11"><a href="rstudio-connect.html#cb124-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-12"><a href="rstudio-connect.html#cb124-12" aria-hidden="true" tabindex="-1"></a>This publishing approach sets up the following flow of events<span class="sc">:</span></span>
+<span id="cb124-13"><a href="rstudio-connect.html#cb124-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-14"><a href="rstudio-connect.html#cb124-14" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> You start with a local <span class="sc">**</span>bookdown<span class="sc">**</span> project.</span>
+<span id="cb124-15"><a href="rstudio-connect.html#cb124-15" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> You build your book locally to an output directory of <span class="fu">choice</span> (<span class="st">`</span><span class="at">_book/</span><span class="st">`</span> by default).</span>
+<span id="cb124-16"><a href="rstudio-connect.html#cb124-16" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> You go to Netlify <span class="fu">Drop</span> (<span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>app.netlify.com<span class="sc">/</span>drop<span class="sc">&gt;</span>), and drag <span class="sc">&amp;</span> drop the output directory into the Netlify browser<span class="sc">-</span>based user interface.</span>
+<span id="cb124-17"><a href="rstudio-connect.html#cb124-17" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> You make changes to your book, rebuild locally, then drag <span class="sc">&amp;</span> drop the output directory again into Netlify to update.</span>
+<span id="cb124-18"><a href="rstudio-connect.html#cb124-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-19"><a href="rstudio-connect.html#cb124-19" aria-hidden="true" tabindex="-1"></a>The above is an overview<span class="sc">---</span>read on <span class="cf">for</span> step<span class="sc">-</span>by<span class="sc">-</span>step instructions.</span>
+<span id="cb124-20"><a href="rstudio-connect.html#cb124-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-21"><a href="rstudio-connect.html#cb124-21" aria-hidden="true" tabindex="-1"></a><span class="do">### Before you begin</span></span>
+<span id="cb124-22"><a href="rstudio-connect.html#cb124-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-23"><a href="rstudio-connect.html#cb124-23" aria-hidden="true" tabindex="-1"></a>Start with a local <span class="sc">**</span>bookdown<span class="sc">**</span> project. It does not need to be <span class="cf">in</span> GitHub or another version<span class="sc">-</span>controlled repository. </span>
+<span id="cb124-24"><a href="rstudio-connect.html#cb124-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-25"><a href="rstudio-connect.html#cb124-25" aria-hidden="true" tabindex="-1"></a>If you do not have an existing book, you can create a simple <span class="sc">**</span>bookdown<span class="sc">**</span> HTML book to practice with instead. See Figure \<span class="sc">@</span><span class="fu">ref</span>(fig<span class="sc">:</span>new<span class="sc">-</span>bs4<span class="sc">-</span>book) <span class="cf">for</span> how to create a new book <span class="cf">in</span> RStudio, or use the <span class="cf">function</span> <span class="st">`</span><span class="at">bookdown::create_gitbook()</span><span class="st">`</span> or <span class="st">`</span><span class="at">bookdown::create_bs4_book()</span><span class="st">`</span> from your R console <span class="cf">if</span> you do not use RStudio.</span>
+<span id="cb124-26"><a href="rstudio-connect.html#cb124-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-27"><a href="rstudio-connect.html#cb124-27" aria-hidden="true" tabindex="-1"></a><span class="do">### Build your book</span></span>
+<span id="cb124-28"><a href="rstudio-connect.html#cb124-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-29"><a href="rstudio-connect.html#cb124-29" aria-hidden="true" tabindex="-1"></a>From your <span class="sc">**</span>bookdown<span class="sc">**</span> project, build your book locally using whichever method from Chapter \<span class="sc">@</span><span class="fu">ref</span>(build<span class="sc">-</span>the<span class="sc">-</span>book) you prefer.</span>
+<span id="cb124-30"><a href="rstudio-connect.html#cb124-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-31"><a href="rstudio-connect.html#cb124-31" aria-hidden="true" tabindex="-1"></a><span class="do">### Deploy your site</span></span>
+<span id="cb124-32"><a href="rstudio-connect.html#cb124-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-33"><a href="rstudio-connect.html#cb124-33" aria-hidden="true" tabindex="-1"></a>Go to Netlify <span class="fu">Drop</span> ([netlify.com<span class="sc">/</span>drop](https<span class="sc">:</span><span class="er">//</span>app.netlify.com<span class="sc">/</span>drop)), where you should see a box that tells you to <span class="st">&quot;Drag and drop your site folder here.&quot;</span></span>
+<span id="cb124-34"><a href="rstudio-connect.html#cb124-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-35"><a href="rstudio-connect.html#cb124-35" aria-hidden="true" tabindex="-1"></a>Next, drag and drop the output directory from your <span class="sc">**</span>bookdown<span class="sc">**</span> <span class="fu">project</span> (<span class="st">`</span><span class="at">_book/</span><span class="st">`</span> by default, unless you changed this <span class="cf">in</span> your <span class="st">`</span><span class="at">_bookdown.yml</span><span class="st">`</span> file) into that box <span class="cf">in</span> your web browser. You should see your book deploy quickly with a random subdomain name of the form <span class="st">`</span><span class="at">https://random-word-12345.netlify.com</span><span class="st">`</span>.</span>
+<span id="cb124-36"><a href="rstudio-connect.html#cb124-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-37"><a href="rstudio-connect.html#cb124-37" aria-hidden="true" tabindex="-1"></a>You will also see a notice that unclaimed sites are deleted after <span class="dv">24</span> hours. You can sign up <span class="cf">for</span> a Netlify account to claim your site and keep it online permanently.</span>
+<span id="cb124-38"><a href="rstudio-connect.html#cb124-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-39"><a href="rstudio-connect.html#cb124-39" aria-hidden="true" tabindex="-1"></a><span class="do">### *Optional: Update your site*</span></span>
+<span id="cb124-40"><a href="rstudio-connect.html#cb124-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-41"><a href="rstudio-connect.html#cb124-41" aria-hidden="true" tabindex="-1"></a>After signing up <span class="cf">for</span> Netlify, you <span class="sc">*</span>can<span class="sc">*</span> update this kind of site, but it is a manual update. Go to Netlify.com and navigate to find your site, then click on <span class="st">&quot;Deploys.&quot;</span> You should see a box as shown <span class="cf">in</span> Figure \<span class="sc">@</span><span class="fu">ref</span>(fig<span class="sc">:</span>netlify<span class="sc">-</span>drag<span class="sc">-</span>drop), indicating you may drag and drop your site folder to update your <span class="fu">site</span> (you may need to scroll to the bottom of this page).</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:netlify-drag-drop"></span>
+<img src="images/netlify-drag-drop-update.png" alt="Screenshot of drag and drop deploy update box on Netlify."  />
+<p class="caption">
+FIGURE 6.1: Screenshot of drag and drop deploy update box on Netlify.
+</p>
+</div>
+<p>Edit your book, build it locally again, then drag and drop the output directory here again.</p>
+<div id="netlify-subdomain" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> <em>Optional: change the default subdomain</em></h3>
+<p>Navigate to your site’s landing page on Netlify.com (<a href="https://app.netlify.com" class="uri">https://app.netlify.com</a>), click on <em>Overview &gt; Site Settings</em>. Under <em>Site information</em>, click on <em>Change site name</em> and update it to a name that you want. If you want to use your own domain instead of Netlify’s subdomain, please read the documentation at <a href="https://docs.netlify.com/domains-https/custom-domains/" class="uri">https://docs.netlify.com/domains-https/custom-domains/</a>.</p>
+</div>
+<div id="drawbacks-and-alternatives" class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Drawbacks and alternatives</h3>
+<p>This workflow is great to quickly share a book prototype. However, if you opt to not claim your site, the link will expire in 24 hours. Even if you do claim your site and set up a Netlify account, this workflow is not ideal for books you are actively editing or collaborating on because every time you update your local version of the book, you need to manually upload the book to Netlify. You are also not reaping the benefits of version control with this approach.</p>
+</div>
 </div>
             </section>
 
@@ -263,7 +364,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
@@ -291,7 +391,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/06-publishing.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/main/inst/examples/06-publishing.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -304,7 +404,7 @@ gitbook.start({
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

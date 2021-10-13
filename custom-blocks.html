@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.7 Custom blocks | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
+  <meta name="generator" content="bookdown 0.24.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.7 Custom blocks | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -23,6 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
+<meta name="date" content="2021-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +33,9 @@
   
 <link rel="prev" href="cross-references.html"/>
 <link rel="next" href="citations.html"/>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/header-attrs/header-attrs.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -47,8 +51,6 @@
 
 
 
-
-<script src="libs/accessible-code-block/empty-anchor.js"></script>
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
 <script src="libs/htmlwidgets/htmlwidgets.js"></script>
@@ -62,18 +64,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -93,7 +95,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -126,11 +128,33 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
-<body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
+<body>
 
 
 
@@ -143,27 +167,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Authoring Books with R Markdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
 <li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
 <li class="chapter" data-level="" data-path="structure-of-the-book.html"><a href="structure-of-the-book.html"><i class="fa fa-check"></i>Structure of the book</a></li>
 <li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1.2</b> Get started</a></li>
 <li class="chapter" data-level="1.3" data-path="usage.html"><a href="usage.html"><i class="fa fa-check"></i><b>1.3</b> Usage</a></li>
 <li class="chapter" data-level="1.4" data-path="new-session.html"><a href="new-session.html"><i class="fa fa-check"></i><b>1.4</b> Two rendering approaches</a></li>
 <li class="chapter" data-level="1.5" data-path="some-tips.html"><a href="some-tips.html"><i class="fa fa-check"></i><b>1.5</b> Some tips</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a><ul>
-<li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a><ul>
+<li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html#inline-formatting"><i class="fa fa-check"></i><b>2.1.1</b> Inline formatting</a></li>
 <li class="chapter" data-level="2.1.2" data-path="markdown-syntax.html"><a href="markdown-syntax.html#block-level-elements"><i class="fa fa-check"></i><b>2.1.2</b> Block-level elements</a></li>
 <li class="chapter" data-level="2.1.3" data-path="markdown-syntax.html"><a href="markdown-syntax.html#math-expressions"><i class="fa fa-check"></i><b>2.1.3</b> Math expressions</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a><ul>
+<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#equations"><i class="fa fa-check"></i><b>2.2.1</b> Number and reference equations</a></li>
 <li class="chapter" data-level="2.2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#theorems"><i class="fa fa-check"></i><b>2.2.2</b> Theorems and proofs</a></li>
 <li class="chapter" data-level="2.2.3" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#special-headers"><i class="fa fa-check"></i><b>2.2.3</b> Special headers</a></li>
@@ -179,45 +208,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.10" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.10</b> HTML widgets</a></li>
 <li class="chapter" data-level="2.11" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.11</b> Web pages and Shiny apps</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a><ul>
-<li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a><ul>
+<li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="html.html"><a href="html.html#gitbook-style"><i class="fa fa-check"></i><b>3.1.1</b> GitBook style</a></li>
-<li class="chapter" data-level="3.1.2" data-path="html.html"><a href="html.html#bootstrap-style"><i class="fa fa-check"></i><b>3.1.2</b> Bootstrap style</a></li>
-<li class="chapter" data-level="3.1.3" data-path="html.html"><a href="html.html#tufte-style"><i class="fa fa-check"></i><b>3.1.3</b> Tufte style</a></li>
+<li class="chapter" data-level="3.1.2" data-path="html.html"><a href="html.html#bs4-book"><i class="fa fa-check"></i><b>3.1.2</b> Three-column Bootstrap style</a></li>
+<li class="chapter" data-level="3.1.3" data-path="html.html"><a href="html.html#bootstrap-style"><i class="fa fa-check"></i><b>3.1.3</b> The default Bootstrap style</a></li>
+<li class="chapter" data-level="3.1.4" data-path="html.html"><a href="html.html#tufte-style"><i class="fa fa-check"></i><b>3.1.4</b> Tufte style</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="latexpdf.html"><a href="latexpdf.html"><i class="fa fa-check"></i><b>3.2</b> LaTeX/PDF</a></li>
-<li class="chapter" data-level="3.3" data-path="e-books.html"><a href="e-books.html"><i class="fa fa-check"></i><b>3.3</b> E-Books</a><ul>
+<li class="chapter" data-level="3.3" data-path="e-books.html"><a href="e-books.html"><i class="fa fa-check"></i><b>3.3</b> E-Books</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="e-books.html"><a href="e-books.html#epub"><i class="fa fa-check"></i><b>3.3.1</b> EPUB</a></li>
 <li class="chapter" data-level="3.3.2" data-path="e-books.html"><a href="e-books.html#mobi"><i class="fa fa-check"></i><b>3.3.2</b> MOBI</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="a-single-document.html"><a href="a-single-document.html"><i class="fa fa-check"></i><b>3.4</b> A single document</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="customization.html"><a href="customization.html"><i class="fa fa-check"></i><b>4</b> Customization</a><ul>
+<li class="chapter" data-level="4" data-path="customization.html"><a href="customization.html"><i class="fa fa-check"></i><b>4</b> Customization</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="yaml-options.html"><a href="yaml-options.html"><i class="fa fa-check"></i><b>4.1</b> YAML options</a></li>
 <li class="chapter" data-level="4.2" data-path="theming.html"><a href="theming.html"><i class="fa fa-check"></i><b>4.2</b> Theming</a></li>
 <li class="chapter" data-level="4.3" data-path="templates.html"><a href="templates.html"><i class="fa fa-check"></i><b>4.3</b> Templates</a></li>
 <li class="chapter" data-level="4.4" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>4.4</b> Configuration</a></li>
 <li class="chapter" data-level="4.5" data-path="internationalization.html"><a href="internationalization.html"><i class="fa fa-check"></i><b>4.5</b> Internationalization</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="editing.html"><a href="editing.html"><i class="fa fa-check"></i><b>5</b> Editing</a><ul>
+<li class="chapter" data-level="5" data-path="editing.html"><a href="editing.html"><i class="fa fa-check"></i><b>5</b> Editing</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="build-the-book.html"><a href="build-the-book.html"><i class="fa fa-check"></i><b>5.1</b> Build the book</a></li>
 <li class="chapter" data-level="5.2" data-path="preview-a-chapter.html"><a href="preview-a-chapter.html"><i class="fa fa-check"></i><b>5.2</b> Preview a chapter</a></li>
 <li class="chapter" data-level="5.3" data-path="serve-the-book.html"><a href="serve-the-book.html"><i class="fa fa-check"></i><b>5.3</b> Serve the book</a></li>
 <li class="chapter" data-level="5.4" data-path="rstudio-ide.html"><a href="rstudio-ide.html"><i class="fa fa-check"></i><b>5.4</b> RStudio IDE</a></li>
 <li class="chapter" data-level="5.5" data-path="collaboration.html"><a href="collaboration.html"><i class="fa fa-check"></i><b>5.5</b> Collaboration</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
-<li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
+<li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html#netlify-subdomain"><i class="fa fa-check"></i><b>6.1.1</b> <em>Optional: change the default subdomain</em></a></li>
+<li class="chapter" data-level="6.1.2" data-path="rstudio-connect.html"><a href="rstudio-connect.html#drawbacks-and-alternatives"><i class="fa fa-check"></i><b>6.1.2</b> Drawbacks and alternatives</a></li>
+</ul></li>
 <li class="chapter" data-level="6.2" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.2</b> GitHub</a></li>
-<li class="chapter" data-level="6.3" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.3</b> Publishers</a></li>
+<li class="chapter" data-level="6.3" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html"><i class="fa fa-check"></i><b>6.3</b> Features for HTML publishing</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html#html-404"><i class="fa fa-check"></i><b>6.3.1</b> HTML 404 pages</a></li>
+<li class="chapter" data-level="6.3.2" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html#metadata-for-sharing"><i class="fa fa-check"></i><b>6.3.2</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.4</b> Publishers</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a>
+<ul>
 <li class="chapter" data-level="A.1" data-path="r-and-r-packages.html"><a href="r-and-r-packages.html"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
 <li class="chapter" data-level="A.2" data-path="pandoc.html"><a href="pandoc.html"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
 <li class="chapter" data-level="A.3" data-path="latex.html"><a href="latex.html"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="software-usage.html"><a href="software-usage.html"><i class="fa fa-check"></i><b>B</b> Software Usage</a><ul>
+<li class="chapter" data-level="B" data-path="software-usage.html"><a href="software-usage.html"><i class="fa fa-check"></i><b>B</b> Software Usage</a>
+<ul>
 <li class="chapter" data-level="B.1" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>B.1</b> knitr</a></li>
 <li class="chapter" data-level="B.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>B.2</b> R Markdown</a></li>
 </ul></li>
@@ -243,107 +290,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="custom-blocks" class="section level2">
+<div id="custom-blocks" class="section level2" number="2.7">
 <h2><span class="header-section-number">2.7</span> Custom blocks</h2>
-<div class="rmdimportant">
-<p>We recommend that you use the new syntax to create custom blocks, which is introduced in <a href="https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html">Section 9.6 in the <em>R Markdown Cookbook</em></a> <span class="citation">(Xie, Dervieux, and Riederer <a href="#ref-rmarkdown2020" role="doc-biblioref">2020</a>)</span>. We do not recommend using the <code>block</code> or <code>block2</code> engine described below. Those will be deprecated in a future version of <strong>bookdown</strong>. Please remember to switch to the new syntax for your content if you are still using one of these engines. Thanks for your understanding!</p>
-</div>
-<p>You can generate custom blocks using the <code>block</code> engine in <strong>knitr</strong>, i.e., the chunk option <code>engine = 'block'</code>, or the more compact syntax <code>```{block}</code>. This engine should be used in conjunction with the chunk option <code>type</code>, which takes a character string. When the <code>block</code> engine is used, it generates a <code>&lt;div&gt;</code> to wrap the chunk content if the output format is HTML, and a LaTeX environment if the output is LaTeX. The <code>type</code> option specifies the class of the <code>&lt;div&gt;</code> and the name of the LaTeX environment. For example, the HTML output of this chunk</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb52-1"><a href="custom-blocks.html#cb52-1"></a><span class="bn">```{block, type=&#39;FOO&#39;}</span></span>
-<span id="cb52-2"><a href="custom-blocks.html#cb52-2"></a><span class="bn">Some text for this block.</span></span>
-<span id="cb52-3"><a href="custom-blocks.html#cb52-3"></a><span class="bn">```</span></span></code></pre></div>
-<p>will be this:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb53-1"><a href="custom-blocks.html#cb53-1"></a><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;FOO&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb53-2"><a href="custom-blocks.html#cb53-2"></a>Some text for this block.</span>
-<span id="cb53-3"><a href="custom-blocks.html#cb53-3"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
-<p>and the LaTeX output will be this:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb54-1"><a href="custom-blocks.html#cb54-1"></a><span class="kw">\begin</span>{<span class="ex">FOO</span>}</span>
-<span id="cb54-2"><a href="custom-blocks.html#cb54-2"></a>Some text for this block.</span>
-<span id="cb54-3"><a href="custom-blocks.html#cb54-3"></a><span class="kw">\end</span>{<span class="ex">FOO</span>}</span></code></pre></div>
-<p>It is up to the book author how to define the style of the block. You can define the style of the <code>&lt;div&gt;</code> in CSS and include it in the output via the <code>includes</code> option in the YAML metadata. Similarly, you may define the LaTeX environment via <code>\newenvironment</code> and include the definition in the LaTeX output via the <code>includes</code> option. For example, we may save the following style in a CSS file, say, <code>style.css</code>:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb55-1"><a href="custom-blocks.html#cb55-1"></a>div<span class="fu">.FOO</span> {</span>
-<span id="cb55-2"><a href="custom-blocks.html#cb55-2"></a>  <span class="kw">font-weight</span>: <span class="dv">bold</span><span class="op">;</span></span>
-<span id="cb55-3"><a href="custom-blocks.html#cb55-3"></a>  <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span></span>
-<span id="cb55-4"><a href="custom-blocks.html#cb55-4"></a>}</span></code></pre></div>
-<p>And the YAML metadata of the R Markdown document can be:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb56-1"><a href="custom-blocks.html#cb56-1"></a><span class="pp">---</span></span>
-<span id="cb56-2"><a href="custom-blocks.html#cb56-2"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb56-3"><a href="custom-blocks.html#cb56-3"></a><span class="at">  bookdown:</span><span class="fu">:html_book</span><span class="kw">:</span></span>
-<span id="cb56-4"><a href="custom-blocks.html#cb56-4"></a><span class="at">    </span><span class="fu">includes</span><span class="kw">:</span></span>
-<span id="cb56-5"><a href="custom-blocks.html#cb56-5"></a><span class="at">      </span><span class="fu">in_header</span><span class="kw">:</span><span class="at"> style.css</span></span>
-<span id="cb56-6"><a href="custom-blocks.html#cb56-6"></a><span class="pp">---</span></span></code></pre></div>
-<p>We have defined a few types of blocks for this book to show notes, tips, and warnings, etc. Below are some examples:</p>
-
-<div class="rmdnote">
-R is free software and comes with ABSOLUTELY NO WARRANTY.
-You are welcome to redistribute it under the terms of the
-GNU General Public License versions 2 or 3.
-For more information about these matters see
-<a href="http://www.gnu.org/licenses/" class="uri">http://www.gnu.org/licenses/</a>.
-</div>
-
-
-<div class="rmdcaution">
-R is free software and comes with ABSOLUTELY NO WARRANTY.
-You are welcome to redistribute it under the terms of the
-GNU General Public License versions 2 or 3.
-For more information about these matters see
-<a href="http://www.gnu.org/licenses/" class="uri">http://www.gnu.org/licenses/</a>.
-</div>
-
-
-<div class="rmdimportant">
-R is free software and comes with ABSOLUTELY NO WARRANTY.
-You are welcome to redistribute it under the terms of the
-GNU General Public License versions 2 or 3.
-For more information about these matters see
-<a href="http://www.gnu.org/licenses/" class="uri">http://www.gnu.org/licenses/</a>.
-</div>
-
-
-<div class="rmdtip">
-R is free software and comes with ABSOLUTELY NO WARRANTY.
-You are welcome to redistribute it under the terms of the
-GNU General Public License versions 2 or 3.
-For more information about these matters see
-<a href="http://www.gnu.org/licenses/" class="uri">http://www.gnu.org/licenses/</a>.
-</div>
-
-
-<div class="rmdwarning">
-R is free software and comes with ABSOLUTELY NO WARRANTY.
-You are welcome to redistribute it under the terms of the
-GNU General Public License versions 2 or 3.
-For more information about these matters see
-<a href="http://www.gnu.org/licenses/" class="uri">http://www.gnu.org/licenses/</a>.
-</div>
-
-<p>The <strong>knitr</strong> <code>block</code> engine was designed to display simple content (typically a paragraph of plain text). You can use simple formatting syntax such as making certain words bold or italic, but more advanced syntax such as citations and cross-references will not work. However, there is an alternative engine named <code>block2</code> that supports arbitrary Markdown syntax, e.g.,</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb57-1"><a href="custom-blocks.html#cb57-1"></a><span class="bn">```{block2, type=&#39;FOO&#39;}</span></span>
-<span id="cb57-2"><a href="custom-blocks.html#cb57-2"></a><span class="bn">Some text for this block [@citation-key].</span></span>
-<span id="cb57-3"><a href="custom-blocks.html#cb57-3"></a></span>
-<span id="cb57-4"><a href="custom-blocks.html#cb57-4"></a><span class="bn">- a list item</span></span>
-<span id="cb57-5"><a href="custom-blocks.html#cb57-5"></a><span class="bn">- another item</span></span>
-<span id="cb57-6"><a href="custom-blocks.html#cb57-6"></a></span>
-<span id="cb57-7"><a href="custom-blocks.html#cb57-7"></a><span class="bn">More text.</span></span>
-<span id="cb57-8"><a href="custom-blocks.html#cb57-8"></a><span class="bn">```</span></span></code></pre></div>
-<p>The <code>block2</code> engine should also be faster than the <code>block</code> engine if you have a lot of custom blocks in the document, but its implementation was based on <a href="https://github.com/jgm/pandoc/issues/2453">a hack,</a> so we are not 100% sure if it is always going to work in the future. We have not seen problems with Pandoc v1.17.2 yet.</p>
-<p>One more caveat for the <code>block2</code> engine: if the last element in the block is not an ordinary paragraph, you must leave a blank line at the end, e.g.,</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb58-1"><a href="custom-blocks.html#cb58-1"></a><span class="bn">```{block2, type=&#39;FOO&#39;}</span></span>
-<span id="cb58-2"><a href="custom-blocks.html#cb58-2"></a><span class="bn">Some text for this block [@citation-key].</span></span>
-<span id="cb58-3"><a href="custom-blocks.html#cb58-3"></a></span>
-<span id="cb58-4"><a href="custom-blocks.html#cb58-4"></a><span class="bn">- a list item</span></span>
-<span id="cb58-5"><a href="custom-blocks.html#cb58-5"></a><span class="bn">- another item</span></span>
-<span id="cb58-6"><a href="custom-blocks.html#cb58-6"></a><span class="bn">- end the list with a blank line</span></span>
-<span id="cb58-7"><a href="custom-blocks.html#cb58-7"></a></span>
-<span id="cb58-8"><a href="custom-blocks.html#cb58-8"></a><span class="bn">```</span></span></code></pre></div>
-<p>The theorem and proof environments in Section <a href="markdown-extensions-by-bookdown.html#theorems">2.2.2</a> are actually implemented through the <code>block2</code> engine.</p>
-<p>For all custom blocks based on the <code>block</code> or <code>block2</code> engine, there is one chunk option <code>echo</code> that you can use to show (<code>echo = TRUE</code>) or hide (<code>echo = FALSE</code>) the blocks.</p>
+<p>Custom blocks are often used in technical books to create salient boxes of code and/or narrative that call the reader’s attention. For example, custom blocks may be used to highlight a note or a warning. These can be included in multiple <strong>bookdown</strong> output formats using Pandoc’s syntax for fenced <code>Div</code> blocks (<a href="https://pandoc.org/MANUAL.html#divs-and-spans" class="uri">https://pandoc.org/MANUAL.html#divs-and-spans</a>). Section 9.6 in the <a href="https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html"><em>R Markdown Cookbook</em></a> <span class="citation">(<a href="#ref-rmarkdown2020" role="doc-biblioref">Xie, Dervieux, and Riederer 2020</a>)</span> for instructions.</p>
+<p>The <code>bs4_book()</code> HTML output format includes styling for selected custom blocks; see Section <a href="html.html#bs4-book">3.1.2</a>.</p>
 </div>
 <h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-rmarkdown2020">
-<p>Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R Markdown Cookbook</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown-cookbook">https://bookdown.org/yihui/rmarkdown-cookbook</a>.</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-rmarkdown2020" class="csl-entry">
+Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R Markdown Cookbook</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown-cookbook">https://bookdown.org/yihui/rmarkdown-cookbook</a>.
 </div>
 </div>
             </section>
@@ -356,7 +311,6 @@ For more information about these matters see
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
@@ -384,7 +338,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/02-components.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/main/inst/examples/02-components.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -397,7 +351,7 @@ gitbook.start({
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A.3 LaTeX | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
+  <meta name="generator" content="bookdown 0.24.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A.3 LaTeX | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -23,6 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
+<meta name="date" content="2021-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +33,9 @@
   
 <link rel="prev" href="pandoc.html"/>
 <link rel="next" href="software-usage.html"/>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/header-attrs/header-attrs.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -47,8 +51,6 @@
 
 
 
-
-<script src="libs/accessible-code-block/empty-anchor.js"></script>
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
 <script src="libs/htmlwidgets/htmlwidgets.js"></script>
@@ -62,18 +64,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -93,7 +95,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -126,11 +128,33 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
-<body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
+<body>
 
 
 
@@ -143,27 +167,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Authoring Books with R Markdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
 <li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
 <li class="chapter" data-level="" data-path="structure-of-the-book.html"><a href="structure-of-the-book.html"><i class="fa fa-check"></i>Structure of the book</a></li>
 <li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1.2</b> Get started</a></li>
 <li class="chapter" data-level="1.3" data-path="usage.html"><a href="usage.html"><i class="fa fa-check"></i><b>1.3</b> Usage</a></li>
 <li class="chapter" data-level="1.4" data-path="new-session.html"><a href="new-session.html"><i class="fa fa-check"></i><b>1.4</b> Two rendering approaches</a></li>
 <li class="chapter" data-level="1.5" data-path="some-tips.html"><a href="some-tips.html"><i class="fa fa-check"></i><b>1.5</b> Some tips</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a><ul>
-<li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a><ul>
+<li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html#inline-formatting"><i class="fa fa-check"></i><b>2.1.1</b> Inline formatting</a></li>
 <li class="chapter" data-level="2.1.2" data-path="markdown-syntax.html"><a href="markdown-syntax.html#block-level-elements"><i class="fa fa-check"></i><b>2.1.2</b> Block-level elements</a></li>
 <li class="chapter" data-level="2.1.3" data-path="markdown-syntax.html"><a href="markdown-syntax.html#math-expressions"><i class="fa fa-check"></i><b>2.1.3</b> Math expressions</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a><ul>
+<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#equations"><i class="fa fa-check"></i><b>2.2.1</b> Number and reference equations</a></li>
 <li class="chapter" data-level="2.2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#theorems"><i class="fa fa-check"></i><b>2.2.2</b> Theorems and proofs</a></li>
 <li class="chapter" data-level="2.2.3" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#special-headers"><i class="fa fa-check"></i><b>2.2.3</b> Special headers</a></li>
@@ -179,45 +208,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.10" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.10</b> HTML widgets</a></li>
 <li class="chapter" data-level="2.11" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.11</b> Web pages and Shiny apps</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a><ul>
-<li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a><ul>
+<li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="html.html"><a href="html.html#gitbook-style"><i class="fa fa-check"></i><b>3.1.1</b> GitBook style</a></li>
-<li class="chapter" data-level="3.1.2" data-path="html.html"><a href="html.html#bootstrap-style"><i class="fa fa-check"></i><b>3.1.2</b> Bootstrap style</a></li>
-<li class="chapter" data-level="3.1.3" data-path="html.html"><a href="html.html#tufte-style"><i class="fa fa-check"></i><b>3.1.3</b> Tufte style</a></li>
+<li class="chapter" data-level="3.1.2" data-path="html.html"><a href="html.html#bs4-book"><i class="fa fa-check"></i><b>3.1.2</b> Three-column Bootstrap style</a></li>
+<li class="chapter" data-level="3.1.3" data-path="html.html"><a href="html.html#bootstrap-style"><i class="fa fa-check"></i><b>3.1.3</b> The default Bootstrap style</a></li>
+<li class="chapter" data-level="3.1.4" data-path="html.html"><a href="html.html#tufte-style"><i class="fa fa-check"></i><b>3.1.4</b> Tufte style</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="latexpdf.html"><a href="latexpdf.html"><i class="fa fa-check"></i><b>3.2</b> LaTeX/PDF</a></li>
-<li class="chapter" data-level="3.3" data-path="e-books.html"><a href="e-books.html"><i class="fa fa-check"></i><b>3.3</b> E-Books</a><ul>
+<li class="chapter" data-level="3.3" data-path="e-books.html"><a href="e-books.html"><i class="fa fa-check"></i><b>3.3</b> E-Books</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="e-books.html"><a href="e-books.html#epub"><i class="fa fa-check"></i><b>3.3.1</b> EPUB</a></li>
 <li class="chapter" data-level="3.3.2" data-path="e-books.html"><a href="e-books.html#mobi"><i class="fa fa-check"></i><b>3.3.2</b> MOBI</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="a-single-document.html"><a href="a-single-document.html"><i class="fa fa-check"></i><b>3.4</b> A single document</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="customization.html"><a href="customization.html"><i class="fa fa-check"></i><b>4</b> Customization</a><ul>
+<li class="chapter" data-level="4" data-path="customization.html"><a href="customization.html"><i class="fa fa-check"></i><b>4</b> Customization</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="yaml-options.html"><a href="yaml-options.html"><i class="fa fa-check"></i><b>4.1</b> YAML options</a></li>
 <li class="chapter" data-level="4.2" data-path="theming.html"><a href="theming.html"><i class="fa fa-check"></i><b>4.2</b> Theming</a></li>
 <li class="chapter" data-level="4.3" data-path="templates.html"><a href="templates.html"><i class="fa fa-check"></i><b>4.3</b> Templates</a></li>
 <li class="chapter" data-level="4.4" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>4.4</b> Configuration</a></li>
 <li class="chapter" data-level="4.5" data-path="internationalization.html"><a href="internationalization.html"><i class="fa fa-check"></i><b>4.5</b> Internationalization</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="editing.html"><a href="editing.html"><i class="fa fa-check"></i><b>5</b> Editing</a><ul>
+<li class="chapter" data-level="5" data-path="editing.html"><a href="editing.html"><i class="fa fa-check"></i><b>5</b> Editing</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="build-the-book.html"><a href="build-the-book.html"><i class="fa fa-check"></i><b>5.1</b> Build the book</a></li>
 <li class="chapter" data-level="5.2" data-path="preview-a-chapter.html"><a href="preview-a-chapter.html"><i class="fa fa-check"></i><b>5.2</b> Preview a chapter</a></li>
 <li class="chapter" data-level="5.3" data-path="serve-the-book.html"><a href="serve-the-book.html"><i class="fa fa-check"></i><b>5.3</b> Serve the book</a></li>
 <li class="chapter" data-level="5.4" data-path="rstudio-ide.html"><a href="rstudio-ide.html"><i class="fa fa-check"></i><b>5.4</b> RStudio IDE</a></li>
 <li class="chapter" data-level="5.5" data-path="collaboration.html"><a href="collaboration.html"><i class="fa fa-check"></i><b>5.5</b> Collaboration</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
-<li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
+<li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html#netlify-subdomain"><i class="fa fa-check"></i><b>6.1.1</b> <em>Optional: change the default subdomain</em></a></li>
+<li class="chapter" data-level="6.1.2" data-path="rstudio-connect.html"><a href="rstudio-connect.html#drawbacks-and-alternatives"><i class="fa fa-check"></i><b>6.1.2</b> Drawbacks and alternatives</a></li>
+</ul></li>
 <li class="chapter" data-level="6.2" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.2</b> GitHub</a></li>
-<li class="chapter" data-level="6.3" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.3</b> Publishers</a></li>
+<li class="chapter" data-level="6.3" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html"><i class="fa fa-check"></i><b>6.3</b> Features for HTML publishing</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html#html-404"><i class="fa fa-check"></i><b>6.3.1</b> HTML 404 pages</a></li>
+<li class="chapter" data-level="6.3.2" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html#metadata-for-sharing"><i class="fa fa-check"></i><b>6.3.2</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.4</b> Publishers</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a>
+<ul>
 <li class="chapter" data-level="A.1" data-path="r-and-r-packages.html"><a href="r-and-r-packages.html"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
 <li class="chapter" data-level="A.2" data-path="pandoc.html"><a href="pandoc.html"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
 <li class="chapter" data-level="A.3" data-path="latex.html"><a href="latex.html"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="software-usage.html"><a href="software-usage.html"><i class="fa fa-check"></i><b>B</b> Software Usage</a><ul>
+<li class="chapter" data-level="B" data-path="software-usage.html"><a href="software-usage.html"><i class="fa fa-check"></i><b>B</b> Software Usage</a>
+<ul>
 <li class="chapter" data-level="B.1" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>B.1</b> knitr</a></li>
 <li class="chapter" data-level="B.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>B.2</b> R Markdown</a></li>
 </ul></li>
@@ -243,44 +290,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="latex" class="section level2">
+<div id="latex" class="section level2" number="7.3">
 <h2><span class="header-section-number">A.3</span> LaTeX</h2>
 <p>LaTeX is required only if you want to convert your book to PDF. You may see <a href="https://www.latex-project.org/get/" class="uri">https://www.latex-project.org/get/</a> for more information about LaTeX and its installation, but we strongly recommend that you install the lightweight and cross-platform LaTeX distribution named <a href="https://yihui.org/tinytex/">TinyTeX</a> and based on TeX Live. TinyTeX can be easily installed through the R package <strong>tinytex</strong> (which should be automatically installed when you install <strong>bookdown</strong>):</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="latex.html#cb138-1"></a>tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="latex.html#cb144-1" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span></code></pre></div>
 <p>With TinyTeX, you should never see error messages like this:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb139-1"><a href="latex.html#cb139-1"></a>! LaTeX Error: File `titling.sty&#39; not found.</span>
-<span id="cb139-2"><a href="latex.html#cb139-2"></a></span>
-<span id="cb139-3"><a href="latex.html#cb139-3"></a>Type X to quit or &lt;RETURN&gt; to proceed,</span>
-<span id="cb139-4"><a href="latex.html#cb139-4"></a>or enter new name. (Default extension: sty)</span>
-<span id="cb139-5"><a href="latex.html#cb139-5"></a></span>
-<span id="cb139-6"><a href="latex.html#cb139-6"></a>Enter file name: </span>
-<span id="cb139-7"><a href="latex.html#cb139-7"></a>! Emergency stop.</span>
-<span id="cb139-8"><a href="latex.html#cb139-8"></a>&lt;read *&gt; </span>
-<span id="cb139-9"><a href="latex.html#cb139-9"></a>         </span>
-<span id="cb139-10"><a href="latex.html#cb139-10"></a>l.107 ^^M</span>
-<span id="cb139-11"><a href="latex.html#cb139-11"></a></span>
-<span id="cb139-12"><a href="latex.html#cb139-12"></a>pandoc: Error producing PDF</span>
-<span id="cb139-13"><a href="latex.html#cb139-13"></a>Error: pandoc document conversion failed with error 43</span>
-<span id="cb139-14"><a href="latex.html#cb139-14"></a>Execution halted</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb145-1"><a href="latex.html#cb145-1" aria-hidden="true" tabindex="-1"></a>! LaTeX Error: File `titling.sty&#39; not found.</span>
+<span id="cb145-2"><a href="latex.html#cb145-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-3"><a href="latex.html#cb145-3" aria-hidden="true" tabindex="-1"></a>Type X to quit or &lt;RETURN&gt; to proceed,</span>
+<span id="cb145-4"><a href="latex.html#cb145-4" aria-hidden="true" tabindex="-1"></a>or enter new name. (Default extension: sty)</span>
+<span id="cb145-5"><a href="latex.html#cb145-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-6"><a href="latex.html#cb145-6" aria-hidden="true" tabindex="-1"></a>Enter file name: </span>
+<span id="cb145-7"><a href="latex.html#cb145-7" aria-hidden="true" tabindex="-1"></a>! Emergency stop.</span>
+<span id="cb145-8"><a href="latex.html#cb145-8" aria-hidden="true" tabindex="-1"></a>&lt;read *&gt; </span>
+<span id="cb145-9"><a href="latex.html#cb145-9" aria-hidden="true" tabindex="-1"></a>         </span>
+<span id="cb145-10"><a href="latex.html#cb145-10" aria-hidden="true" tabindex="-1"></a>l.107 ^^M</span>
+<span id="cb145-11"><a href="latex.html#cb145-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-12"><a href="latex.html#cb145-12" aria-hidden="true" tabindex="-1"></a>pandoc: Error producing PDF</span>
+<span id="cb145-13"><a href="latex.html#cb145-13" aria-hidden="true" tabindex="-1"></a>Error: pandoc document conversion failed with error 43</span>
+<span id="cb145-14"><a href="latex.html#cb145-14" aria-hidden="true" tabindex="-1"></a>Execution halted</span></code></pre></div>
 <p>The above error means you used a package that contains <code>titling.sty</code>, but it was not installed. LaTeX package names are often the same as the <code>*.sty</code> filenames, so in this case, you can try to install the <code>titling</code> package. If you use TinyTeX with R Markdown, missing LaTeX packages will be installed automatically, so you never need to worry about such problems.</p>
 <p>LaTeX distributions and packages are also updated from time to time, and you may consider updating them especially when you run into LaTeX problems. You can find out the version of your LaTeX distribution by:</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="latex.html#cb140-1"></a><span class="kw">system</span>(<span class="st">&quot;pdflatex --version&quot;</span>)</span>
-<span id="cb140-2"><a href="latex.html#cb140-2"></a><span class="co">## pdfTeX 3.14159265-2.6-1.40.18 (TeX Live 2017)</span></span>
-<span id="cb140-3"><a href="latex.html#cb140-3"></a><span class="co">## kpathsea version 6.2.3</span></span>
-<span id="cb140-4"><a href="latex.html#cb140-4"></a><span class="co">## Copyright 2017 Han The Thanh (pdfTeX) et al.</span></span>
-<span id="cb140-5"><a href="latex.html#cb140-5"></a><span class="co">## There is NO warranty.  Redistribution of this software is</span></span>
-<span id="cb140-6"><a href="latex.html#cb140-6"></a><span class="co">## covered by the terms of both the pdfTeX copyright and</span></span>
-<span id="cb140-7"><a href="latex.html#cb140-7"></a><span class="co">## the Lesser GNU General Public License.</span></span>
-<span id="cb140-8"><a href="latex.html#cb140-8"></a><span class="co">## For more information about these matters, see the file</span></span>
-<span id="cb140-9"><a href="latex.html#cb140-9"></a><span class="co">## named COPYING and the pdfTeX source.</span></span>
-<span id="cb140-10"><a href="latex.html#cb140-10"></a><span class="co">## Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.</span></span>
-<span id="cb140-11"><a href="latex.html#cb140-11"></a><span class="co">## Compiled with libpng 1.6.29; using libpng 1.6.29</span></span>
-<span id="cb140-12"><a href="latex.html#cb140-12"></a><span class="co">## Compiled with zlib 1.2.11; using zlib 1.2.11</span></span>
-<span id="cb140-13"><a href="latex.html#cb140-13"></a><span class="co">## Compiled with xpdf version 3.04</span></span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="latex.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">&quot;pdflatex --version&quot;</span>)</span>
+<span id="cb146-2"><a href="latex.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="do">## pdfTeX 3.141592653-2.6-1.40.23 (TeX Live 2022/dev)</span></span>
+<span id="cb146-3"><a href="latex.html#cb146-3" aria-hidden="true" tabindex="-1"></a><span class="do">## kpathsea version 6.3.4/dev</span></span>
+<span id="cb146-4"><a href="latex.html#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Copyright 2021 Han The Thanh (pdfTeX) et al.</span></span>
+<span id="cb146-5"><a href="latex.html#cb146-5" aria-hidden="true" tabindex="-1"></a><span class="do">## There is NO warranty.  Redistribution of this software is</span></span>
+<span id="cb146-6"><a href="latex.html#cb146-6" aria-hidden="true" tabindex="-1"></a><span class="do">## covered by the terms of both the pdfTeX copyright and</span></span>
+<span id="cb146-7"><a href="latex.html#cb146-7" aria-hidden="true" tabindex="-1"></a><span class="do">## the Lesser GNU General Public License.</span></span>
+<span id="cb146-8"><a href="latex.html#cb146-8" aria-hidden="true" tabindex="-1"></a><span class="do">## For more information about these matters, see the file</span></span>
+<span id="cb146-9"><a href="latex.html#cb146-9" aria-hidden="true" tabindex="-1"></a><span class="do">## named COPYING and the pdfTeX source.</span></span>
+<span id="cb146-10"><a href="latex.html#cb146-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.</span></span>
+<span id="cb146-11"><a href="latex.html#cb146-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Compiled with libpng 1.6.37; using libpng 1.6.37</span></span>
+<span id="cb146-12"><a href="latex.html#cb146-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Compiled with zlib 1.2.11; using zlib 1.2.11</span></span>
+<span id="cb146-13"><a href="latex.html#cb146-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Compiled with xpdf version 4.03</span></span></code></pre></div>
 <p>To update TinyTeX, you may run:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="latex.html#cb141-1"></a>tinytex<span class="op">::</span><span class="kw">tlmgr_update</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="latex.html#cb147-1" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">tlmgr_update</span>()</span></code></pre></div>
 <p>From year to year, you may need to upgrade TinyTeX, too (otherwise you cannot install or update any LaTeX packages), in which case you may reinstall TinyTeX:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="latex.html#cb142-1"></a>tinytex<span class="op">::</span><span class="kw">reinstall_tinytex</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="latex.html#cb148-1" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">reinstall_tinytex</span>()</span></code></pre></div>
 
 </div>
 <!-- </div> -->
@@ -294,7 +341,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
@@ -322,7 +368,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/07-tools.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/main/inst/examples/07-tools.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -335,7 +381,7 @@ gitbook.start({
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

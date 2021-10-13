@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.6 Cross-references | bookdown: Authoring Books and Technical Documents with R Markdown</title>
+  <title>6.3 Features for HTML publishing | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="generator" content="bookdown 0.24.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.6 Cross-references | bookdown: Authoring Books and Technical Documents with R Markdown" />
+  <meta property="og:title" content="6.3 Features for HTML publishing | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/yihui/bookdown/" />
   <meta property="og:image" content="https://bookdown.org/yihui/bookdown//images/cover.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.6 Cross-references | bookdown: Authoring Books and Technical Documents with R Markdown" />
+  <meta name="twitter:title" content="6.3 Features for HTML publishing | bookdown: Authoring Books and Technical Documents with R Markdown" />
   
   <meta name="twitter:description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="twitter:image" content="https://bookdown.org/yihui/bookdown//images/cover.jpg" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="tables.html"/>
-<link rel="next" href="custom-blocks.html"/>
+<link rel="prev" href="github.html"/>
+<link rel="next" href="publishers.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
 <script src="libs/jquery/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -290,32 +290,46 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="cross-references" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> Cross-references</h2>
-<p>We have explained how cross-references work for equations (Section <a href="markdown-extensions-by-bookdown.html#equations">2.2.1</a>), theorems (Section <a href="markdown-extensions-by-bookdown.html#theorems">2.2.2</a>), figures (Section <a href="figures.html#figures">2.4</a>), and tables (Section <a href="tables.html#tables">2.5</a>). In fact, you can also reference sections using the same syntax <code>\@ref(label)</code>, where <code>label</code> is the section ID. By default, Pandoc will generate an ID for all section headers, e.g., a section <code># Hello World</code> will have an ID <code>hello-world</code>. We recommend you to manually assign an ID to a section header to make sure you do not forget to update the reference label after you change the section header. To assign an ID to a section header, simply add <code>{#id}</code> to the end of the section header. Further attributes of section headers can be set using standard <a href="http://pandoc.org/MANUAL.html#heading-identifiers">Pandoc syntax</a>.</p>
-<p>When a referenced label cannot be found, you will see two question marks like <a href="#fig:does-not-exist"><strong>??</strong></a>, as well as a warning message in the R console when rendering the book.</p>
-<p>You can also create text-based links using explicit or automatic section IDs or even the actual section header text.</p>
+<div id="features-for-html-publishing" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Features for HTML publishing</h2>
+<div id="html-404" class="section level3" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> HTML 404 pages</h3>
+<p>If a reader tries to access a page in your book that cannot be found, a browser will display a <a href="https://en.wikipedia.org/wiki/HTTP_404">404 error</a> as it cannot find the requested web page. This 404 error is displayed on a 404 page. Each web server has a default for a 404 page. However, most web serving platforms like Netlify, Github Pages, and Gitlab Pages will use a file named <code>404.html</code> in the root of your website as a custom error page, if you provide it.</p>
+<p>For all HTML book formats, <strong>bookdown</strong> creates a custom <code>404.html</code> in your output directory using simple content (a header, and a body of 2 paragraphs); see Figure <a href="features-for-html-publishing.html#fig:404-page">6.2</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:404-page"></span>
+<img src="images/404.png" alt="Screenshot showing an online bs4_book with the sidebar, footer, and CSS styling in place. The text reads: Page not found. The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are looking for."  />
+<p class="caption">
+FIGURE 6.2: Screenshot of an example 404 page.
+</p>
+</div>
+<p>As you can see, this 404 page is embedded within the book so that readers can quickly find their way back to the book’s content. The overall structure of the book’s website (including navbar, footer, sidebars, etc.) and the CSS styling are preserved on the 404 page.</p>
+<p>To customize the 404 page instead of using the one <strong>bookdown</strong> provides, you may add either a <code>_404.Rmd</code> or a <code>_404.md</code> file to your project root. If either file is found when you render the book, the content will be rendered and included as the body of the 404 page embedded within the book structure.</p>
+<p>If a 404.html file already exists in the main repo at the root level (alongside the book’s <code>.Rmd</code> files), then <strong>bookdown</strong> will leave that file as is and will not overwrite it. This is because we assume you already have a mechanism in place in your publishing workflow to use this custom <code>404.html</code>.</p>
+</div>
+<div id="metadata-for-sharing" class="section level3" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Metadata for sharing</h3>
+<p>Bookdown HTML books will provide HTML metadata for social sharing on platforms like Twitter, Facebook, and LinkedIn, using information you provide in the <code>index.Rmd</code> YAML. To set up, set the <code>url</code> for your book and the path to your <code>cover-image</code> file. The path may be either to an absolute URL, or to a relative image file located in your project. Your book’s <code>title</code> and <code>description</code> are also used. A nice effect of setting these options is that when readers share the link of your book on social network websites, the link will be automatically expanded to a card with the cover image and description of the book.</p>
+<div class="figure"><span style="display:block;" id="fig:social"></span>
+<img src="images/social-og.png" alt="When a link is shared on social media, the auto-preview shows the cover-image, title, and description in a summary card layout." width="47.55%" /><img src="images/social-twitter.png" alt="When a link is shared on social media, the auto-preview shows the cover-image, title, and description in a summary card layout." width="51.45%" />
+<p class="caption">
+FIGURE 6.3: Screenshots showing cover-image, title, and description of an HTML book when the link is shared on Facebook and LinkedIn (left), and on Twitter (right).
+</p>
+</div>
+<p>Whichever method you use to publish your HTML book, you may check your metadata using <a href="https://www.opengraph.xyz" class="uri">https://www.opengraph.xyz</a>, which shows you previews of how your link will look when shared across platforms. You may also use a platform-specific developer tool:</p>
 <ul>
-<li>If you are happy with the section header as the link text, use it inside a single set of square brackets:
-<ul>
-<li><code>[Section header text]</code>: example “<a href="a-single-document.html#a-single-document">A single document</a>” via <code>[A single document]</code></li>
-</ul></li>
-<li>There are two ways to specify custom link text:
-<ul>
-<li><code>[link text][Section header text]</code>, e.g., “<a href="internationalization.html#internationalization">non-English books</a>” via <code>[non-English books][Internationalization]</code></li>
-<li><code>[link text](#ID)</code>, e.g., “<a href="tables.html#tables">Table stuff</a>” via <code>[Table stuff](#tables)</code></li>
-</ul></li>
+<li>Facebook: <a href="https://developers.facebook.com/tools/debug/" class="uri">https://developers.facebook.com/tools/debug/</a></li>
+<li>LinkedIn: <a href="https://www.linkedin.com/post-inspector/" class="uri">https://www.linkedin.com/post-inspector/</a></li>
+<li>Twitter: <a href="https://cards-dev.twitter.com/validator" class="uri">https://cards-dev.twitter.com/validator</a></li>
 </ul>
-<p>The Pandoc documentation provides more details on <a href="http://pandoc.org/MANUAL.html#extension-auto_identifiers">automatic section IDs</a> and <a href="http://pandoc.org/MANUAL.html#extension-implicit_header_references">implicit header references.</a></p>
-<p>Cross-references still work even when we refer to an item that is not on the current page of the PDF or HTML output. For example, see Equation <a href="markdown-extensions-by-bookdown.html#eq:binom">(2.1)</a> and Figure <a href="figures.html#fig:knitr-logo">2.4</a>.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="tables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="custom-blocks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="github.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="publishers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
@@ -346,7 +360,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/main/inst/examples/02-components.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/main/inst/examples/06-publishing.Rmd",
 "text": "Edit"
 },
 "history": {

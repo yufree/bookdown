@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.1 YAML options | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
+  <meta name="generator" content="bookdown 0.24.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.1 YAML options | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -23,6 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
+<meta name="date" content="2021-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +33,9 @@
   
 <link rel="prev" href="customization.html"/>
 <link rel="next" href="theming.html"/>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/header-attrs/header-attrs.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -47,8 +51,6 @@
 
 
 
-
-<script src="libs/accessible-code-block/empty-anchor.js"></script>
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
 <script src="libs/htmlwidgets/htmlwidgets.js"></script>
@@ -62,18 +64,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -93,7 +95,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -126,11 +128,33 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
-<body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
+<body>
 
 
 
@@ -143,27 +167,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Authoring Books with R Markdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
 <li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
 <li class="chapter" data-level="" data-path="structure-of-the-book.html"><a href="structure-of-the-book.html"><i class="fa fa-check"></i>Structure of the book</a></li>
 <li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1.2</b> Get started</a></li>
 <li class="chapter" data-level="1.3" data-path="usage.html"><a href="usage.html"><i class="fa fa-check"></i><b>1.3</b> Usage</a></li>
 <li class="chapter" data-level="1.4" data-path="new-session.html"><a href="new-session.html"><i class="fa fa-check"></i><b>1.4</b> Two rendering approaches</a></li>
 <li class="chapter" data-level="1.5" data-path="some-tips.html"><a href="some-tips.html"><i class="fa fa-check"></i><b>1.5</b> Some tips</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a><ul>
-<li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a><ul>
+<li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html#inline-formatting"><i class="fa fa-check"></i><b>2.1.1</b> Inline formatting</a></li>
 <li class="chapter" data-level="2.1.2" data-path="markdown-syntax.html"><a href="markdown-syntax.html#block-level-elements"><i class="fa fa-check"></i><b>2.1.2</b> Block-level elements</a></li>
 <li class="chapter" data-level="2.1.3" data-path="markdown-syntax.html"><a href="markdown-syntax.html#math-expressions"><i class="fa fa-check"></i><b>2.1.3</b> Math expressions</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a><ul>
+<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#equations"><i class="fa fa-check"></i><b>2.2.1</b> Number and reference equations</a></li>
 <li class="chapter" data-level="2.2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#theorems"><i class="fa fa-check"></i><b>2.2.2</b> Theorems and proofs</a></li>
 <li class="chapter" data-level="2.2.3" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#special-headers"><i class="fa fa-check"></i><b>2.2.3</b> Special headers</a></li>
@@ -179,45 +208,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.10" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.10</b> HTML widgets</a></li>
 <li class="chapter" data-level="2.11" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.11</b> Web pages and Shiny apps</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a><ul>
-<li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a><ul>
+<li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="html.html"><a href="html.html#gitbook-style"><i class="fa fa-check"></i><b>3.1.1</b> GitBook style</a></li>
-<li class="chapter" data-level="3.1.2" data-path="html.html"><a href="html.html#bootstrap-style"><i class="fa fa-check"></i><b>3.1.2</b> Bootstrap style</a></li>
-<li class="chapter" data-level="3.1.3" data-path="html.html"><a href="html.html#tufte-style"><i class="fa fa-check"></i><b>3.1.3</b> Tufte style</a></li>
+<li class="chapter" data-level="3.1.2" data-path="html.html"><a href="html.html#bs4-book"><i class="fa fa-check"></i><b>3.1.2</b> Three-column Bootstrap style</a></li>
+<li class="chapter" data-level="3.1.3" data-path="html.html"><a href="html.html#bootstrap-style"><i class="fa fa-check"></i><b>3.1.3</b> The default Bootstrap style</a></li>
+<li class="chapter" data-level="3.1.4" data-path="html.html"><a href="html.html#tufte-style"><i class="fa fa-check"></i><b>3.1.4</b> Tufte style</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="latexpdf.html"><a href="latexpdf.html"><i class="fa fa-check"></i><b>3.2</b> LaTeX/PDF</a></li>
-<li class="chapter" data-level="3.3" data-path="e-books.html"><a href="e-books.html"><i class="fa fa-check"></i><b>3.3</b> E-Books</a><ul>
+<li class="chapter" data-level="3.3" data-path="e-books.html"><a href="e-books.html"><i class="fa fa-check"></i><b>3.3</b> E-Books</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="e-books.html"><a href="e-books.html#epub"><i class="fa fa-check"></i><b>3.3.1</b> EPUB</a></li>
 <li class="chapter" data-level="3.3.2" data-path="e-books.html"><a href="e-books.html#mobi"><i class="fa fa-check"></i><b>3.3.2</b> MOBI</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="a-single-document.html"><a href="a-single-document.html"><i class="fa fa-check"></i><b>3.4</b> A single document</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="customization.html"><a href="customization.html"><i class="fa fa-check"></i><b>4</b> Customization</a><ul>
+<li class="chapter" data-level="4" data-path="customization.html"><a href="customization.html"><i class="fa fa-check"></i><b>4</b> Customization</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="yaml-options.html"><a href="yaml-options.html"><i class="fa fa-check"></i><b>4.1</b> YAML options</a></li>
 <li class="chapter" data-level="4.2" data-path="theming.html"><a href="theming.html"><i class="fa fa-check"></i><b>4.2</b> Theming</a></li>
 <li class="chapter" data-level="4.3" data-path="templates.html"><a href="templates.html"><i class="fa fa-check"></i><b>4.3</b> Templates</a></li>
 <li class="chapter" data-level="4.4" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>4.4</b> Configuration</a></li>
 <li class="chapter" data-level="4.5" data-path="internationalization.html"><a href="internationalization.html"><i class="fa fa-check"></i><b>4.5</b> Internationalization</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="editing.html"><a href="editing.html"><i class="fa fa-check"></i><b>5</b> Editing</a><ul>
+<li class="chapter" data-level="5" data-path="editing.html"><a href="editing.html"><i class="fa fa-check"></i><b>5</b> Editing</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="build-the-book.html"><a href="build-the-book.html"><i class="fa fa-check"></i><b>5.1</b> Build the book</a></li>
 <li class="chapter" data-level="5.2" data-path="preview-a-chapter.html"><a href="preview-a-chapter.html"><i class="fa fa-check"></i><b>5.2</b> Preview a chapter</a></li>
 <li class="chapter" data-level="5.3" data-path="serve-the-book.html"><a href="serve-the-book.html"><i class="fa fa-check"></i><b>5.3</b> Serve the book</a></li>
 <li class="chapter" data-level="5.4" data-path="rstudio-ide.html"><a href="rstudio-ide.html"><i class="fa fa-check"></i><b>5.4</b> RStudio IDE</a></li>
 <li class="chapter" data-level="5.5" data-path="collaboration.html"><a href="collaboration.html"><i class="fa fa-check"></i><b>5.5</b> Collaboration</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
-<li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
+<li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html#netlify-subdomain"><i class="fa fa-check"></i><b>6.1.1</b> <em>Optional: change the default subdomain</em></a></li>
+<li class="chapter" data-level="6.1.2" data-path="rstudio-connect.html"><a href="rstudio-connect.html#drawbacks-and-alternatives"><i class="fa fa-check"></i><b>6.1.2</b> Drawbacks and alternatives</a></li>
+</ul></li>
 <li class="chapter" data-level="6.2" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.2</b> GitHub</a></li>
-<li class="chapter" data-level="6.3" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.3</b> Publishers</a></li>
+<li class="chapter" data-level="6.3" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html"><i class="fa fa-check"></i><b>6.3</b> Features for HTML publishing</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html#html-404"><i class="fa fa-check"></i><b>6.3.1</b> HTML 404 pages</a></li>
+<li class="chapter" data-level="6.3.2" data-path="features-for-html-publishing.html"><a href="features-for-html-publishing.html#metadata-for-sharing"><i class="fa fa-check"></i><b>6.3.2</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.4</b> Publishers</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a>
+<ul>
 <li class="chapter" data-level="A.1" data-path="r-and-r-packages.html"><a href="r-and-r-packages.html"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
 <li class="chapter" data-level="A.2" data-path="pandoc.html"><a href="pandoc.html"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
 <li class="chapter" data-level="A.3" data-path="latex.html"><a href="latex.html"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="software-usage.html"><a href="software-usage.html"><i class="fa fa-check"></i><b>B</b> Software Usage</a><ul>
+<li class="chapter" data-level="B" data-path="software-usage.html"><a href="software-usage.html"><i class="fa fa-check"></i><b>B</b> Software Usage</a>
+<ul>
 <li class="chapter" data-level="B.1" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>B.1</b> knitr</a></li>
 <li class="chapter" data-level="B.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>B.2</b> R Markdown</a></li>
 </ul></li>
@@ -243,78 +290,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="yaml-options" class="section level2">
+<div id="yaml-options" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> YAML options</h2>
 <p>For most types of output formats, you can customize the syntax highlighting styles using the <code>highlight</code> option of the specific format. Currently, the possible styles are <code>default</code>, <code>tango</code>, <code>pygments</code>, <code>kate</code>, <code>monochrome</code>, <code>espresso</code>, <code>zenburn</code>, <code>haddock</code>, and <code>breezedark</code>. For example, you can choose the <code>tango</code> style for the <code>gitbook</code> format:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb94-1"><a href="yaml-options.html#cb94-1"></a><span class="pp">---</span></span>
-<span id="cb94-2"><a href="yaml-options.html#cb94-2"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb94-3"><a href="yaml-options.html#cb94-3"></a><span class="at">  bookdown:</span><span class="fu">:gitbook</span><span class="kw">:</span></span>
-<span id="cb94-4"><a href="yaml-options.html#cb94-4"></a><span class="at">    </span><span class="fu">highlight</span><span class="kw">:</span><span class="at"> tango</span></span>
-<span id="cb94-5"><a href="yaml-options.html#cb94-5"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb100-1"><a href="yaml-options.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb100-2"><a href="yaml-options.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb100-3"><a href="yaml-options.html#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="at">  bookdown:</span><span class="fu">:gitbook</span><span class="kw">:</span></span>
+<span id="cb100-4"><a href="yaml-options.html#cb100-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">highlight</span><span class="kw">:</span><span class="at"> tango</span></span>
+<span id="cb100-5"><a href="yaml-options.html#cb100-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <p>For HTML output formats, you are most likely to use the <code>css</code> option to provide your own CSS stylesheets to customize the appearance of HTML elements. There is an option <code>includes</code> that applies to more formats, including HTML and LaTeX. The <code>includes</code> option allows you to insert arbitrary custom content before and/or after the body of the output. It has three sub-options: <code>in_header</code>, <code>before_body</code>, and <code>after_body</code>. You need to know the basic structure of an HTML or LaTeX document to understand these options. The source of an HTML document looks like this:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb95-1"><a href="yaml-options.html#cb95-1"></a><span class="kw">&lt;html&gt;</span></span>
-<span id="cb95-2"><a href="yaml-options.html#cb95-2"></a>  </span>
-<span id="cb95-3"><a href="yaml-options.html#cb95-3"></a>  <span class="kw">&lt;head&gt;</span></span>
-<span id="cb95-4"><a href="yaml-options.html#cb95-4"></a>  <span class="co">&lt;!-- head content here, e.g. CSS and JS --&gt;</span></span>
-<span id="cb95-5"><a href="yaml-options.html#cb95-5"></a>  <span class="kw">&lt;/head&gt;</span></span>
-<span id="cb95-6"><a href="yaml-options.html#cb95-6"></a>  </span>
-<span id="cb95-7"><a href="yaml-options.html#cb95-7"></a>  <span class="kw">&lt;body&gt;</span></span>
-<span id="cb95-8"><a href="yaml-options.html#cb95-8"></a>  <span class="co">&lt;!-- body content here --&gt;</span></span>
-<span id="cb95-9"><a href="yaml-options.html#cb95-9"></a>  <span class="kw">&lt;/body&gt;</span></span>
-<span id="cb95-10"><a href="yaml-options.html#cb95-10"></a></span>
-<span id="cb95-11"><a href="yaml-options.html#cb95-11"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb101-1"><a href="yaml-options.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;html&gt;</span></span>
+<span id="cb101-2"><a href="yaml-options.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb101-3"><a href="yaml-options.html#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;head&gt;</span></span>
+<span id="cb101-4"><a href="yaml-options.html#cb101-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- head content here, e.g. CSS and JS --&gt;</span></span>
+<span id="cb101-5"><a href="yaml-options.html#cb101-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/head&gt;</span></span>
+<span id="cb101-6"><a href="yaml-options.html#cb101-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb101-7"><a href="yaml-options.html#cb101-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;body&gt;</span></span>
+<span id="cb101-8"><a href="yaml-options.html#cb101-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- body content here --&gt;</span></span>
+<span id="cb101-9"><a href="yaml-options.html#cb101-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/body&gt;</span></span>
+<span id="cb101-10"><a href="yaml-options.html#cb101-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-11"><a href="yaml-options.html#cb101-11" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
 <p>The <code>in_header</code> option takes a file path and inserts it into the <code>&lt;head&gt;</code> tag. The <code>before_body</code> file will be inserted right below the opening <code>&lt;body&gt;</code> tag, and <code>after_body</code> is inserted before the closing tag <code>&lt;/body&gt;</code>.</p>
 <p>A LaTeX source document has a similar structure:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb96-1"><a href="yaml-options.html#cb96-1"></a><span class="bu">\documentclass</span>{<span class="ex">book</span>}</span>
-<span id="cb96-2"><a href="yaml-options.html#cb96-2"></a></span>
-<span id="cb96-3"><a href="yaml-options.html#cb96-3"></a><span class="co">% LaTeX preamble</span></span>
-<span id="cb96-4"><a href="yaml-options.html#cb96-4"></a><span class="co">% insert in_header here</span></span>
-<span id="cb96-5"><a href="yaml-options.html#cb96-5"></a></span>
-<span id="cb96-6"><a href="yaml-options.html#cb96-6"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
-<span id="cb96-7"><a href="yaml-options.html#cb96-7"></a><span class="co">% insert before_body here</span></span>
-<span id="cb96-8"><a href="yaml-options.html#cb96-8"></a></span>
-<span id="cb96-9"><a href="yaml-options.html#cb96-9"></a><span class="co">% body content here</span></span>
-<span id="cb96-10"><a href="yaml-options.html#cb96-10"></a></span>
-<span id="cb96-11"><a href="yaml-options.html#cb96-11"></a><span class="co">% insert after_body here</span></span>
-<span id="cb96-12"><a href="yaml-options.html#cb96-12"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb102-1"><a href="yaml-options.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>{<span class="ex">book</span>}</span>
+<span id="cb102-2"><a href="yaml-options.html#cb102-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-3"><a href="yaml-options.html#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="co">% LaTeX preamble</span></span>
+<span id="cb102-4"><a href="yaml-options.html#cb102-4" aria-hidden="true" tabindex="-1"></a><span class="co">% insert in_header here</span></span>
+<span id="cb102-5"><a href="yaml-options.html#cb102-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-6"><a href="yaml-options.html#cb102-6" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb102-7"><a href="yaml-options.html#cb102-7" aria-hidden="true" tabindex="-1"></a><span class="co">% insert before_body here</span></span>
+<span id="cb102-8"><a href="yaml-options.html#cb102-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-9"><a href="yaml-options.html#cb102-9" aria-hidden="true" tabindex="-1"></a><span class="co">% body content here</span></span>
+<span id="cb102-10"><a href="yaml-options.html#cb102-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-11"><a href="yaml-options.html#cb102-11" aria-hidden="true" tabindex="-1"></a><span class="co">% insert after_body here</span></span>
+<span id="cb102-12"><a href="yaml-options.html#cb102-12" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
 <p>The <code>includes</code> option is very useful and flexible. For HTML output, it means you can insert arbitrary HTML code into the output. For example, when you have LaTeX math expressions rendered via the MathJax library in the HTML output, and want the equation numbers to be displayed on the left (default is on the right), you can create a text file that contains the following code:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb97-1"><a href="yaml-options.html#cb97-1"></a><span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/x-mathjax-config&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb97-2"><a href="yaml-options.html#cb97-2"></a><span class="va">MathJax</span>.<span class="va">Hub</span>.<span class="at">Config</span>(<span class="op">{</span></span>
-<span id="cb97-3"><a href="yaml-options.html#cb97-3"></a>  <span class="dt">TeX</span><span class="op">:</span> <span class="op">{</span> <span class="dt">TagSide</span><span class="op">:</span> <span class="st">&quot;left&quot;</span> <span class="op">}</span></span>
-<span id="cb97-4"><a href="yaml-options.html#cb97-4"></a><span class="op">}</span>)<span class="op">;</span></span>
-<span id="cb97-5"><a href="yaml-options.html#cb97-5"></a><span class="kw">&lt;/script&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb103-1"><a href="yaml-options.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/x-mathjax-config&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb103-2"><a href="yaml-options.html#cb103-2" aria-hidden="true" tabindex="-1"></a>MathJax<span class="op">.</span><span class="at">Hub</span><span class="op">.</span><span class="fu">Config</span>({</span>
+<span id="cb103-3"><a href="yaml-options.html#cb103-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">TeX</span><span class="op">:</span> { <span class="dt">TagSide</span><span class="op">:</span> <span class="st">&quot;left&quot;</span> }</span>
+<span id="cb103-4"><a href="yaml-options.html#cb103-4" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb103-5"><a href="yaml-options.html#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/script&gt;</span></span></code></pre></div>
 <p>Let’s assume the file is named <code>mathjax-number.html</code>, and it is in the root directory of your book (the directory that contains all your Rmd files). You can insert this file into the HTML head via the <code>in_header</code> option, e.g.,</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb98-1"><a href="yaml-options.html#cb98-1"></a><span class="pp">---</span></span>
-<span id="cb98-2"><a href="yaml-options.html#cb98-2"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb98-3"><a href="yaml-options.html#cb98-3"></a><span class="at">  bookdown:</span><span class="fu">:gitbook</span><span class="kw">:</span></span>
-<span id="cb98-4"><a href="yaml-options.html#cb98-4"></a><span class="at">    </span><span class="fu">includes</span><span class="kw">:</span></span>
-<span id="cb98-5"><a href="yaml-options.html#cb98-5"></a><span class="at">      </span><span class="fu">in_header</span><span class="kw">:</span><span class="at"> mathjax-number.html</span></span>
-<span id="cb98-6"><a href="yaml-options.html#cb98-6"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb104-1"><a href="yaml-options.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb104-2"><a href="yaml-options.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb104-3"><a href="yaml-options.html#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="at">  bookdown:</span><span class="fu">:gitbook</span><span class="kw">:</span></span>
+<span id="cb104-4"><a href="yaml-options.html#cb104-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">includes</span><span class="kw">:</span></span>
+<span id="cb104-5"><a href="yaml-options.html#cb104-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">in_header</span><span class="kw">:</span><span class="at"> mathjax-number.html</span></span>
+<span id="cb104-6"><a href="yaml-options.html#cb104-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <p>Another example is to enable comments or discussions on your HTML pages. There are several possibilities, such as Disqus (<a href="https://disqus.com" class="uri">https://disqus.com</a>) or Hypothesis (<a href="https://hypothes.is" class="uri">https://hypothes.is</a>). These services can be easily embedded in your HTML book via the <code>includes</code> option (see Section <a href="collaboration.html#collaboration">5.5</a> for details).</p>
 <p>Similarly, if you are familiar with LaTeX, you can add arbitrary LaTeX code to the preamble. That means you can use any LaTeX packages and set up any package options for your book. For example, this book used the <code>in_header</code> option to use a few more LaTeX packages like <strong>booktabs</strong> (for better-looking tables) and <strong>longtable</strong> (for tables that span across multiple pages), and applied a fix to an XeLaTeX problem that links on graphics do not work:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb99-1"><a href="yaml-options.html#cb99-1"></a><span class="bu">\usepackage</span>{<span class="ex">booktabs</span>}</span>
-<span id="cb99-2"><a href="yaml-options.html#cb99-2"></a><span class="bu">\usepackage</span>{<span class="ex">longtable</span>}</span>
-<span id="cb99-3"><a href="yaml-options.html#cb99-3"></a></span>
-<span id="cb99-4"><a href="yaml-options.html#cb99-4"></a><span class="fu">\ifxetex</span></span>
-<span id="cb99-5"><a href="yaml-options.html#cb99-5"></a>  <span class="bu">\usepackage</span>{<span class="ex">letltxmacro</span>}</span>
-<span id="cb99-6"><a href="yaml-options.html#cb99-6"></a>  <span class="fu">\setlength</span>{<span class="fu">\XeTeXLinkMargin</span>}{1pt}</span>
-<span id="cb99-7"><a href="yaml-options.html#cb99-7"></a>  <span class="fu">\LetLtxMacro\SavedIncludeGraphics\includegraphics</span></span>
-<span id="cb99-8"><a href="yaml-options.html#cb99-8"></a>  <span class="fu">\def</span>\includegraphics#1#{<span class="co">% #1 catches optional stuff (star/opt. arg.)</span></span>
-<span id="cb99-9"><a href="yaml-options.html#cb99-9"></a>    \IncludeGraphicsAux{#1}<span class="co">%</span></span>
-<span id="cb99-10"><a href="yaml-options.html#cb99-10"></a>  }<span class="co">%</span></span>
-<span id="cb99-11"><a href="yaml-options.html#cb99-11"></a>  <span class="fu">\newcommand*</span>{<span class="ex">\IncludeGraphicsAux</span>}[2]{<span class="co">%</span></span>
-<span id="cb99-12"><a href="yaml-options.html#cb99-12"></a>    <span class="fu">\XeTeXLinkBox</span>{<span class="co">%</span></span>
-<span id="cb99-13"><a href="yaml-options.html#cb99-13"></a>      <span class="fu">\SavedIncludeGraphics</span>#1{#2}<span class="co">%</span></span>
-<span id="cb99-14"><a href="yaml-options.html#cb99-14"></a>    }<span class="co">%</span></span>
-<span id="cb99-15"><a href="yaml-options.html#cb99-15"></a>  }<span class="co">%</span></span>
-<span id="cb99-16"><a href="yaml-options.html#cb99-16"></a><span class="fu">\fi</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb105-1"><a href="yaml-options.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">booktabs</span>}</span>
+<span id="cb105-2"><a href="yaml-options.html#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">longtable</span>}</span>
+<span id="cb105-3"><a href="yaml-options.html#cb105-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-4"><a href="yaml-options.html#cb105-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\ifxetex</span></span>
+<span id="cb105-5"><a href="yaml-options.html#cb105-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">\usepackage</span>{<span class="ex">letltxmacro</span>}</span>
+<span id="cb105-6"><a href="yaml-options.html#cb105-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\setlength</span>{<span class="fu">\XeTeXLinkMargin</span>}{1pt}</span>
+<span id="cb105-7"><a href="yaml-options.html#cb105-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\LetLtxMacro\SavedIncludeGraphics\includegraphics</span></span>
+<span id="cb105-8"><a href="yaml-options.html#cb105-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\def\includegraphics</span>#1#{<span class="co">% #1 catches optional stuff (star/opt. arg.)</span></span>
+<span id="cb105-9"><a href="yaml-options.html#cb105-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\IncludeGraphicsAux</span>{#1}<span class="co">%</span></span>
+<span id="cb105-10"><a href="yaml-options.html#cb105-10" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb105-11"><a href="yaml-options.html#cb105-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\newcommand*</span>{<span class="ex">\IncludeGraphicsAux</span>}[2]{<span class="co">%</span></span>
+<span id="cb105-12"><a href="yaml-options.html#cb105-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\XeTeXLinkBox</span>{<span class="co">%</span></span>
+<span id="cb105-13"><a href="yaml-options.html#cb105-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">\SavedIncludeGraphics</span>#1{#2}<span class="co">%</span></span>
+<span id="cb105-14"><a href="yaml-options.html#cb105-14" aria-hidden="true" tabindex="-1"></a>    }<span class="co">%</span></span>
+<span id="cb105-15"><a href="yaml-options.html#cb105-15" aria-hidden="true" tabindex="-1"></a>  }<span class="co">%</span></span>
+<span id="cb105-16"><a href="yaml-options.html#cb105-16" aria-hidden="true" tabindex="-1"></a><span class="fu">\fi</span></span></code></pre></div>
 <p>The above LaTeX code is saved in a file <code>preamble.tex</code>, and the YAML metadata looks like this:</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb100-1"><a href="yaml-options.html#cb100-1"></a><span class="pp">---</span></span>
-<span id="cb100-2"><a href="yaml-options.html#cb100-2"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb100-3"><a href="yaml-options.html#cb100-3"></a><span class="at">  bookdown:</span><span class="fu">:pdf_book</span><span class="kw">:</span></span>
-<span id="cb100-4"><a href="yaml-options.html#cb100-4"></a><span class="at">    </span><span class="fu">includes</span><span class="kw">:</span></span>
-<span id="cb100-5"><a href="yaml-options.html#cb100-5"></a><span class="at">      </span><span class="fu">in_header</span><span class="kw">:</span><span class="at"> preamble.tex</span></span>
-<span id="cb100-6"><a href="yaml-options.html#cb100-6"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb106-1"><a href="yaml-options.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb106-2"><a href="yaml-options.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb106-3"><a href="yaml-options.html#cb106-3" aria-hidden="true" tabindex="-1"></a><span class="at">  bookdown:</span><span class="fu">:pdf_book</span><span class="kw">:</span></span>
+<span id="cb106-4"><a href="yaml-options.html#cb106-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">includes</span><span class="kw">:</span></span>
+<span id="cb106-5"><a href="yaml-options.html#cb106-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">in_header</span><span class="kw">:</span><span class="at"> preamble.tex</span></span>
+<span id="cb106-6"><a href="yaml-options.html#cb106-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 </div>
             </section>
 
@@ -326,7 +373,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
@@ -354,7 +400,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/04-customization.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/main/inst/examples/04-customization.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -367,7 +413,7 @@ gitbook.start({
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
