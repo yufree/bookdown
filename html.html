@@ -625,30 +625,29 @@ To use another icon, specify it with the correct prefix such as <code>fas</code>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="html.html#cb89-1" aria-hidden="true" tabindex="-1"></a>build_chapter <span class="ot">=</span> <span class="cf">function</span>(</span>
 <span id="cb89-2"><a href="html.html#cb89-2" aria-hidden="true" tabindex="-1"></a>  head, toc, chapter, link_prev, link_next, rmd_cur, html_cur, foot</span>
 <span id="cb89-3"><a href="html.html#cb89-3" aria-hidden="true" tabindex="-1"></a>) {</span>
-<span id="cb89-4"><a href="html.html#cb89-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add a has-sub class to the &lt;li&gt; items that has sub lists</span></span>
-<span id="cb89-5"><a href="html.html#cb89-5" aria-hidden="true" tabindex="-1"></a>  toc <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">&#39;^(&lt;li&gt;)(.+&lt;ul&gt;)$&#39;</span>, <span class="st">&#39;&lt;li class=&quot;has-sub&quot;&gt;</span><span class="sc">\\</span><span class="st">2&#39;</span>, toc)</span>
-<span id="cb89-6"><a href="html.html#cb89-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="fu">c</span>(</span>
-<span id="cb89-7"><a href="html.html#cb89-7" aria-hidden="true" tabindex="-1"></a>    head,</span>
-<span id="cb89-8"><a href="html.html#cb89-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;div class=&quot;row&quot;&gt;&#39;</span>,</span>
-<span id="cb89-9"><a href="html.html#cb89-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;div class=&quot;col-sm-12&quot;&gt;&#39;</span>,</span>
-<span id="cb89-10"><a href="html.html#cb89-10" aria-hidden="true" tabindex="-1"></a>    toc,</span>
+<span id="cb89-4"><a href="html.html#cb89-4" aria-hidden="true" tabindex="-1"></a>  toc <span class="ot">=</span> <span class="fu">add_toc_class</span>(toc)</span>
+<span id="cb89-5"><a href="html.html#cb89-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="fu">c</span>(</span>
+<span id="cb89-6"><a href="html.html#cb89-6" aria-hidden="true" tabindex="-1"></a>    head,</span>
+<span id="cb89-7"><a href="html.html#cb89-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;div class=&quot;row&quot;&gt;&#39;</span>,</span>
+<span id="cb89-8"><a href="html.html#cb89-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;div class=&quot;col-sm-12&quot;&gt;&#39;</span>,</span>
+<span id="cb89-9"><a href="html.html#cb89-9" aria-hidden="true" tabindex="-1"></a>    toc,</span>
+<span id="cb89-10"><a href="html.html#cb89-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</span>
 <span id="cb89-11"><a href="html.html#cb89-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</span>
-<span id="cb89-12"><a href="html.html#cb89-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</span>
-<span id="cb89-13"><a href="html.html#cb89-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;div class=&quot;row&quot;&gt;&#39;</span>,</span>
-<span id="cb89-14"><a href="html.html#cb89-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;div class=&quot;col-sm-12&quot;&gt;&#39;</span>,</span>
-<span id="cb89-15"><a href="html.html#cb89-15" aria-hidden="true" tabindex="-1"></a>    chapter,</span>
-<span id="cb89-16"><a href="html.html#cb89-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;p style=&quot;text-align: center;&quot;&gt;&#39;</span>,</span>
-<span id="cb89-17"><a href="html.html#cb89-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">button_link</span>(link_prev, <span class="st">&#39;Previous&#39;</span>),</span>
-<span id="cb89-18"><a href="html.html#cb89-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">source_link</span>(rmd_cur, <span class="at">type =</span> <span class="st">&#39;edit&#39;</span>),</span>
-<span id="cb89-19"><a href="html.html#cb89-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">source_link</span>(rmd_cur, <span class="at">type =</span> <span class="st">&#39;history&#39;</span>),</span>
-<span id="cb89-20"><a href="html.html#cb89-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">source_link</span>(rmd_cur, <span class="at">type =</span> <span class="st">&#39;view&#39;</span>),</span>
-<span id="cb89-21"><a href="html.html#cb89-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">button_link</span>(link_next, <span class="st">&#39;Next&#39;</span>),</span>
-<span id="cb89-22"><a href="html.html#cb89-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;/p&gt;&#39;</span>,</span>
+<span id="cb89-12"><a href="html.html#cb89-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;div class=&quot;row&quot;&gt;&#39;</span>,</span>
+<span id="cb89-13"><a href="html.html#cb89-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;div class=&quot;col-sm-12&quot;&gt;&#39;</span>,</span>
+<span id="cb89-14"><a href="html.html#cb89-14" aria-hidden="true" tabindex="-1"></a>    chapter,</span>
+<span id="cb89-15"><a href="html.html#cb89-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;p style=&quot;text-align: center;&quot;&gt;&#39;</span>,</span>
+<span id="cb89-16"><a href="html.html#cb89-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">button_link</span>(link_prev, <span class="st">&#39;Previous&#39;</span>),</span>
+<span id="cb89-17"><a href="html.html#cb89-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">source_link</span>(rmd_cur, <span class="at">type =</span> <span class="st">&#39;edit&#39;</span>),</span>
+<span id="cb89-18"><a href="html.html#cb89-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">source_link</span>(rmd_cur, <span class="at">type =</span> <span class="st">&#39;history&#39;</span>),</span>
+<span id="cb89-19"><a href="html.html#cb89-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">source_link</span>(rmd_cur, <span class="at">type =</span> <span class="st">&#39;view&#39;</span>),</span>
+<span id="cb89-20"><a href="html.html#cb89-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">button_link</span>(link_next, <span class="st">&#39;Next&#39;</span>),</span>
+<span id="cb89-21"><a href="html.html#cb89-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;/p&gt;&#39;</span>,</span>
+<span id="cb89-22"><a href="html.html#cb89-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</span>
 <span id="cb89-23"><a href="html.html#cb89-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</span>
-<span id="cb89-24"><a href="html.html#cb89-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</span>
-<span id="cb89-25"><a href="html.html#cb89-25" aria-hidden="true" tabindex="-1"></a>    foot</span>
-<span id="cb89-26"><a href="html.html#cb89-26" aria-hidden="true" tabindex="-1"></a>  ), <span class="at">collapse =</span> <span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>)</span>
-<span id="cb89-27"><a href="html.html#cb89-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb89-24"><a href="html.html#cb89-24" aria-hidden="true" tabindex="-1"></a>    foot</span>
+<span id="cb89-25"><a href="html.html#cb89-25" aria-hidden="true" tabindex="-1"></a>  ), <span class="at">collapse =</span> <span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>)</span>
+<span id="cb89-26"><a href="html.html#cb89-26" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Basically, this function takes a number of components like the HTML head, the table of contents, the chapter body, and so on, and it is expected to return a character string which is the HTML source of a complete HTML page. You may manipulate all components in this function using text-processing functions like <code>gsub()</code> and <code>paste()</code>.</p>
 <p>What the default page builder does is to put TOC in the first row, the body in the second row, navigation buttons at the bottom of the body, and concatenate them with the HTML head and foot. Here is a sketch of the HTML source code that may help you understand the output of <code>build_chapter()</code>:</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb90-1"><a href="html.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;html&gt;</span></span>
