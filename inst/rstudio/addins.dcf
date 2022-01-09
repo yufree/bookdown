@@ -7,3 +7,8 @@ Name: Input LaTeX Math
 Description: Input math expressions via the MathQuill library.
 Binding: mathquill
 Interactive: true
+
+Name: Insert Image
+Description: Insert an external image into a bookdown page.
+Binding: insert_image_addin
+Interactive: true
